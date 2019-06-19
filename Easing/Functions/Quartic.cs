@@ -25,6 +25,10 @@ namespace Easing
 {
     public class Quartic : Ease
     {
+        public Quartic() : base() { }
+
+        public Quartic(Point origin, Point destination) : base(origin, destination) { }
+
         public override Point In(float x)
         {
             x = ScaleX(x);

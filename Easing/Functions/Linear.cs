@@ -25,6 +25,10 @@ namespace Easing
 {
     public class Linear : Ease
     {
+        public Linear() : base() { }
+
+        public Linear(Point origin, Point destination) : base(origin, destination) { }
+
         public override Point In(float x)
         {
             x = ScaleX(x);

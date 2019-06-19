@@ -25,6 +25,10 @@ namespace Easing
 {
     public class Cubic : Ease
     {
+        public Cubic() : base() { }
+
+        public Cubic(Point origin, Point destination) : base(origin, destination) { }
+
         public override Point In(float x)
         {
             x = ScaleX(x);

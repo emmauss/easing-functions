@@ -25,6 +25,10 @@ namespace Easing
 {
     public class Circular : Ease
     {
+        public Circular() : base() { }
+
+        public Circular(Point origin, Point destination) : base(origin, destination) { }
+
         public override Point In(float x)
         {
             x = ScaleX(x);

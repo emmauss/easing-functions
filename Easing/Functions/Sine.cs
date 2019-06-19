@@ -25,6 +25,10 @@ namespace Easing
 {
     public class Sine : Ease
     {
+        public Sine() : base() { }
+
+        public Sine(Point origin, Point destination) : base(origin, destination) { }
+
         public override Point In(float x)
         {
             x = ScaleX(x);
