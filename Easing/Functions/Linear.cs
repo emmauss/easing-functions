@@ -23,13 +23,48 @@ SOFTWARE.
 
 namespace Easing
 {
-    public interface IEase
+    public class Linear : Ease
     {
-        float In(float y, float deltaX, float yScale = 1, float xScale = 1);
-        float InInverse(float y);
-        float InOut(float y, float deltaX, float yScale = 1, float xScale = 1);
-        float InOutInverse(float y);
-        float Out(float y, float deltaX, float yScale = 1, float xScale = 1);
-        float OutInverse(float y);
+        public override float In(float x)
+        {
+            x = NormailzeX(x);
+            float y = x;
+            return NormailzeY(y);
+        }
+
+        public override float Out(float x)
+        {
+            x = NormailzeX(x);
+            float y = x;
+            return NormailzeY(y);
+        }
+
+        public override float InOut(float x)
+        {
+            x = NormailzeX(x);
+            float y = x;
+            return NormailzeY(y);
+        }
+
+        public override float InInverse(float y)
+        {
+            y = NormailzeY(y);
+            float x = y;
+            return NormailzeX(x);
+        }
+
+        public override float OutInverse(float y)
+        {
+            y = NormailzeY(y);
+            float x = y;
+            return NormailzeX(x);
+        }
+
+        public override float InOutInverse(float y)
+        {
+            y = NormailzeY(y);
+            float x = y;
+            return NormailzeX(x);
+        }
     }
 }

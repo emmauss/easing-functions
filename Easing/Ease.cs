@@ -46,33 +46,44 @@ namespace Easing
             Destination = to;
         }
 
-        protected float CoordinatesWithinRange(float newY, float x)
-        {
-            if (x <= Min || newY <= Min)
-            {
-                return Min;
-            }
-            else if (x >= Max || newY >= Max)
-            {
-                return Max;
-            }
-            else
-            {
-                return newY;
-            }
-        }
+        public abstract float In(float x);
 
-        public abstract float In(float y, float deltaX, float yScale = 1, float xScale = 1);
+        public abstract float Out(float x);
+
+        public abstract float InOut(float x);
+
         public abstract float InInverse(float y);
-        public abstract float InOut(float y, float deltaX, float yScale = 1, float xScale = 1);
-        public abstract float InOutInverse(float y);
-        public abstract float Out(float y, float deltaX, float yScale = 1, float xScale = 1);
+
         public abstract float OutInverse(float y);
 
-        protected static void NormailzePoints(ref float y, ref float deltaX, float yScale, float xScale)
+        public abstract float InOutInverse(float y);
+
+        protected float NormailzeX(float x)
         {
-            y /= yScale;
-            deltaX /= xScale;
+            x -= Min;
+            x /= Max - Min;
+            return x;
+        }
+
+        protected float NormailzeY(float y)
+        {
+            y -= Min;
+            y /= Max - Min;
+            return y;
+        }
+
+        protected float DenormailzeX(float x)
+        {
+            x *= Max - Min;
+            x += Min;
+            return x;
+        }
+
+        protected float DenormailzeY(float y)
+        {
+            y *= Max - Min;
+            y += Min;
+            return y;
         }
 
         protected void NormailzePoint(ref Point point)

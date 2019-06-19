@@ -7,347 +7,156 @@
     {
         #region In
         [TestMethod]
-        public void In_Current1DetlaTime0p1_1()
+        public void In_Xis0p6_Yis0p36()
         {
             Ease ease = new Quadratic();
-            float current = 1.0f;
-            float deltaTime = 0.1f;
+            float x = 0.6f;
 
-            float expected = 1f;
-            float actual = ease.In(current, deltaTime);
+            float expected = 0.36f;
+            float actual = ease.In(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void In_Current1DetlaTime0p2_1()
+        public void In_Xis0p3_Yis0p09()
         {
             Ease ease = new Quadratic();
-            float current = 1.0f;
-            float deltaTime = 0.2f;
+            float x = 0.3f;
 
-            float expected = 1f;
-            float actual = ease.In(current, deltaTime);
+            float expected = 0.09f;
+            float actual = ease.In(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void In_Current0p5DetlaTime0p1_0p6514()
+        public void InInverse_Xis0p6_Yis0p7746()
         {
             Ease ease = new Quadratic();
-            float current = 0.5f;
-            float deltaTime = 0.1f;
+            float x = 0.6f;
 
-            float expected = 0.6514f;
-            float actual = ease.In(current, deltaTime);
+            float expected = 0.7746f;
+            float actual = ease.InInverse(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void In_Current0p3DetlaTime0p1_0p4195()
+        public void InInverse_Xis0p3_Yis0p5477()
         {
             Ease ease = new Quadratic();
-            float current = 0.3f;
-            float deltaTime = 0.1f;
+            float x = 0.3f;
 
-            float expected = 0.4195f;
-            float actual = ease.In(current, deltaTime);
+            float expected = 0.5477f;
+            float actual = ease.InInverse(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void In_Current7DetlaTime0p3YScale7TScale3_1()
-        {
-            Ease ease = new Quadratic();
-            float current = 7.0f;
-            float deltaTime = 0.3f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 1f;
-            float actual = ease.In(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void In_Current7DetlaTime0p6YScale7TScale3_1()
-        {
-            Ease ease = new Quadratic();
-            float current = 7.0f;
-            float deltaTime = 0.6f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 1f;
-            float actual = ease.In(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void In_Current3p5DetlaTime0p3YScale7TScale3_0p6514()
-        {
-            Ease ease = new Quadratic();
-            float current = 3.5f;
-            float deltaTime = 0.3f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 0.6514f;
-            float actual = ease.In(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void In_Current2p1DetlaTime0p3YScale7TScale3_0p4195()
-        {
-            Ease ease = new Quadratic();
-            float current = 2.1f;
-            float deltaTime = 0.3f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 0.4195f;
-            float actual = ease.In(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
         #endregion
 
 
         #region Out
         [TestMethod]
-        public void Out_Current1DetlaTime0p1_1()
+        public void Out_Xis0p6_Yis0p84()
         {
             Ease ease = new Quadratic();
-            float current = 1.0f;
-            float deltaTime = 0.1f;
+            float x = 0.6f;
 
-            float expected = 1f;
-            float actual = ease.Out(current, deltaTime);
+            float expected = 0.84f;
+            float actual = ease.Out(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void Out_Current1DetlaTime0p2_1()
+        public void Out_Xis0p3_Yis0p51()
         {
             Ease ease = new Quadratic();
-            float current = 1.0f;
-            float deltaTime = 0.2f;
+            float x = 0.3f;
 
-            float expected = 1f;
-            float actual = ease.Out(current, deltaTime);
+            float expected = 0.51f;
+            float actual = ease.Out(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void Out_Current0p5DetlaTime0p1_0p6314()
+        public void OutInverse_Xis0p6_Yis0p3675()
         {
             Ease ease = new Quadratic();
-            float current = 0.5f;
-            float deltaTime = 0.1f;
+            float x = 0.6f;
 
-            float expected = 0.6314f;
-            float actual = ease.Out(current, deltaTime);
+            float expected = 0.3675f;
+            float actual = ease.OutInverse(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void Out_Current0p3DetlaTime0p1_0p4573()
+        public void OutInverse_Xis0p3_Yis0p1633()
         {
             Ease ease = new Quadratic();
-            float current = 0.3f;
-            float deltaTime = 0.1f;
+            float x = 0.3f;
 
-            float expected = 0.4573f;
-            float actual = ease.Out(current, deltaTime);
+            float expected = 0.1633f;
+            float actual = ease.OutInverse(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void Out_Current7DetlaTime0p3YScale7TScale3_1()
-        {
-            Ease ease = new Quadratic();
-            float current = 7.0f;
-            float deltaTime = 0.3f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 1f;
-            float actual = ease.Out(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void Out_Current7DetlaTime0p6YScale7TScale3_1()
-        {
-            Ease ease = new Quadratic();
-            float current = 7.0f;
-            float deltaTime = 0.6f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 1f;
-            float actual = ease.Out(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void Out_Current3p5DetlaTime0p3YScale7TScale3_0p6314()
-        {
-            Ease ease = new Quadratic();
-            float current = 3.5f;
-            float deltaTime = 0.3f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 0.6314f;
-            float actual = ease.Out(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void Out_Current2p1DetlaTime0p3YScale7TScale3_0p4573()
-        {
-            Ease ease = new Quadratic();
-            float current = 2.1f;
-            float deltaTime = 0.3f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 0.4573f;
-            float actual = ease.Out(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
         #endregion
 
 
         #region InOut
         [TestMethod]
-        public void InOut_Current1DetlaTime0p1_1()
+        public void InOut_Xis0p6_Yis0p68()
         {
             Ease ease = new Quadratic();
-            float current = 1.0f;
-            float deltaTime = 0.1f;
-
-            float expected = 1f;
-            float actual = ease.InOut(current, deltaTime);
-
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void InOut_Current1DetlaTime0p2_1()
-        {
-            Ease ease = new Quadratic();
-            float current = 1.0f;
-            float deltaTime = 0.2f;
-
-            float expected = 1f;
-            float actual = ease.InOut(current, deltaTime);
-
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void InOut_Current0p5DetlaTime0p1_0p68()
-        {
-            Ease ease = new Quadratic();
-            float current = 0.5f;
-            float deltaTime = 0.1f;
+            float x = 0.6f;
 
             float expected = 0.68f;
-            float actual = ease.InOut(current, deltaTime);
+            float actual = ease.InOut(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InOut_Current0p3DetlaTime0p1_0p4743()
+        public void InOut_Xis0p3_Yis0p18()
         {
             Ease ease = new Quadratic();
-            float current = 0.3f;
-            float deltaTime = 0.1f;
+            float x = 0.3f;
 
-            float expected = 0.4743f;
-            float actual = ease.InOut(current, deltaTime);
+            float expected = 0.18f;
+            float actual = ease.InOut(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InOut_Current7DetlaTime0p3YScale7TScale3_1()
+        public void InOutInverse_Xis0p6_Yis0p5528()
         {
             Ease ease = new Quadratic();
-            float current = 7.0f;
-            float deltaTime = 0.3f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
+            float x = 0.6f;
 
-            float expected = 1f;
-            float actual = ease.InOut(current, deltaTime, yScale, xScale);
+            float expected = 0.5528f;
+            float actual = ease.InOutInverse(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InOut_Current7DetlaTime0p6YScale7TScale3_1()
+        public void InOutInverse_Xis0p3_Yis0p3873()
         {
             Ease ease = new Quadratic();
-            float current = 7.0f;
-            float deltaTime = 0.6f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
+            float x = 0.3f;
 
-            float expected = 1f;
-            float actual = ease.InOut(current, deltaTime, yScale, xScale);
+            float expected = 0.3873f;
+            float actual = ease.InOutInverse(x);
 
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void InOut_Current3p5DetlaTime0p3YScale7TScale3_0p68()
-        {
-            Ease ease = new Quadratic();
-            float current = 3.5f;
-            float deltaTime = 0.3f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 0.68f;
-            float actual = ease.InOut(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
-        }
-
-        [TestMethod]
-        public void InOut_Current2p1DetlaTime0p3YScale7TScale3_0p4743()
-        {
-            Ease ease = new Quadratic();
-            float current = 2.1f;
-            float deltaTime = 0.3f;
-            float yScale = 7.0f;
-            float xScale = 3.0f;
-
-            float expected = 0.4743f;
-            float actual = ease.InOut(current, deltaTime, yScale, xScale);
-
-            Assert.AreEqual(expected, actual, 0.01f);
+            Assert.AreEqual(expected, actual, 0.001f);
         }
         #endregion
+
     }
 }
 

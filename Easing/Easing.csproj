@@ -41,19 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ease.Circular.cs" />
+    <Compile Include="Functions\Circular.cs" />
     <Compile Include="Ease.cs" />
-    <Compile Include="Ease.Cubic.cs" />
-    <Compile Include="Ease.Linear.cs" />
-    <Compile Include="Ease.Quadratic.cs" />
-    <Compile Include="Ease.Quartic.cs" />
-    <Compile Include="Ease.Quintic.cs" />
-    <Compile Include="IEase.cs" />
+    <Compile Include="Functions\Cubic.cs" />
+    <Compile Include="Functions\Linear.cs" />
+    <Compile Include="Functions\Quadratic.cs" />
+    <Compile Include="Functions\Quartic.cs" />
+    <Compile Include="Functions\Quintic.cs" />
     <Compile Include="Vector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ease.Sine.cs" />
+    <Compile Include="Functions\Sine.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

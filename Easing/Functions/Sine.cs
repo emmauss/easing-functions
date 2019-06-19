@@ -23,54 +23,49 @@ SOFTWARE.
 
 namespace Easing
 {
-    public class Linear : Ease
+    public class Sine : Ease
     {
-        public override float In(float y, float deltaX, float yScale = 1, float xScale = 1)
+        public override float In(float x)
         {
-            NormailzePoints(ref y, ref deltaX, yScale, xScale);
+            x = NormailzeX(x);
+            float y = 1 + Sin((PI / 2) * x - (PI / 2));
+            return NormailzeY(y);
+        }
 
-            float x = InInverse(y) + deltaX;
-            float newY = x;
+        public override float Out(float x)
+        {
+            x = NormailzeX(x);
+            float y = Sin((PI / 2) * x);
+            return NormailzeY(y);
+        }
 
-            return CoordinatesWithinRange(newY, x);
+        public override float InOut(float x)
+        {
+            x = NormailzeX(x);
+            float y = 0.5f + 0.5f * Sin((PI * x) - (PI / 2));
+            return NormailzeY(y);
         }
 
         public override float InInverse(float y)
         {
-            float x = y;
-            return x;
-        }
-
-        public override float Out(float y, float deltaX, float yScale = 1, float xScale = 1)
-        {
-            NormailzePoints(ref y, ref deltaX, yScale, xScale);
-
-            float x = OutInverse(y) + deltaX;
-            float newY = x;
-
-            return CoordinatesWithinRange(newY, x);
+            y = NormailzeY(y);
+            float x = (2 * Asin(y - 1) + PI) / PI;
+            return NormailzeX(x);
         }
 
         public override float OutInverse(float y)
         {
-            float x = y;
-            return x;
-        }
-
-        public override float InOut(float y, float deltaX, float yScale = 1, float xScale = 1)
-        {
-            NormailzePoints(ref y, ref deltaX, yScale, xScale);
-
-            float x = InOutInverse(y) + deltaX;
-            float newY = x;
-
-            return CoordinatesWithinRange(newY, x);
+            y = NormailzeY(y);
+            float x = (2 * Asin(y)) / PI;
+            return NormailzeX(x);
         }
 
         public override float InOutInverse(float y)
         {
-            float x = y;
-            return x;
+            y = NormailzeY(y);
+            float x = (2 * Asin((2 * y) - 1) + PI) / (2 * PI);
+            return NormailzeX(x);
         }
     }
 }
+
