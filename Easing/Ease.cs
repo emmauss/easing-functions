@@ -58,12 +58,12 @@ namespace Easing
 
         protected float ScaleX(float x)
         {
-            return x / (Origin.Y - Destination.Y);
+            return x / (Destination.Y - Origin.Y);
         }
 
         protected float ScaleY(float y)
         {
-            return y * (Origin.X - Destination.X);
+            return y * (Destination.X - Origin.X);
         }
 
         protected static float Sin(float value)
