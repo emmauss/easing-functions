@@ -9,7 +9,7 @@
         [TestMethod]
         public void In_Current1DetlaTime0p1_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 1.0f;
             float deltaTime = 0.1f;
 
@@ -22,7 +22,7 @@
         [TestMethod]
         public void In_Current1DetlaTime0p2_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 1.0f;
             float deltaTime = 0.2f;
 
@@ -35,7 +35,7 @@
         [TestMethod]
         public void In_Current0p5DetlaTime0p1_0p8614()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 0.5f;
             float deltaTime = 0.1f;
 
@@ -48,7 +48,7 @@
         [TestMethod]
         public void In_Current0p3DetlaTime0p1_0p546()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 0.3f;
             float deltaTime = 0.1f;
 
@@ -61,7 +61,7 @@
         [TestMethod]
         public void In_Current7DetlaTime0p3YScale7TScale3_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 7.0f;
             float deltaTime = 0.3f;
             float yScale = 7.0f;
@@ -76,7 +76,7 @@
         [TestMethod]
         public void In_Current7DetlaTime0p6YScale7TScale3_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 7.0f;
             float deltaTime = 0.6f;
             float yScale = 7.0f;
@@ -91,7 +91,7 @@
         [TestMethod]
         public void In_Current3p5DetlaTime0p3YScale7TScale3_0p8614()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 3.5f;
             float deltaTime = 0.3f;
             float yScale = 7.0f;
@@ -106,7 +106,7 @@
         [TestMethod]
         public void In_Current2p1DetlaTime0p3YScale7TScale3_0p546()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 2.1f;
             float deltaTime = 0.3f;
             float yScale = 7.0f;
@@ -124,7 +124,7 @@
         [TestMethod]
         public void Out_Current1DetlaTime0p1_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 1.0f;
             float deltaTime = 0.1f;
 
@@ -137,7 +137,7 @@
         [TestMethod]
         public void Out_Current1DetlaTime0p2_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 1.0f;
             float deltaTime = 0.2f;
 
@@ -150,7 +150,7 @@
         [TestMethod]
         public void Out_Current0p5DetlaTime0p1_0p7283()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 0.5f;
             float deltaTime = 0.1f;
 
@@ -163,7 +163,7 @@
         [TestMethod]
         public void Out_Current0p3DetlaTime0p1_0p6035()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 0.3f;
             float deltaTime = 0.1f;
 
@@ -176,7 +176,7 @@
         [TestMethod]
         public void Out_Current7DetlaTime0p3YScale7TScale3_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 7.0f;
             float deltaTime = 0.3f;
             float yScale = 7.0f;
@@ -191,7 +191,7 @@
         [TestMethod]
         public void Out_Current7DetlaTime0p6YScale7TScale3_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 7.0f;
             float deltaTime = 0.6f;
             float yScale = 7.0f;
@@ -206,7 +206,7 @@
         [TestMethod]
         public void Out_Current3p5DetlaTime0p3YScale7TScale3_0p7283()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 3.5f;
             float deltaTime = 0.3f;
             float yScale = 7.0f;
@@ -221,7 +221,7 @@
         [TestMethod]
         public void Out_Current2p1DetlaTime0p3YScale7TScale3_0p6035()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 2.1f;
             float deltaTime = 0.3f;
             float yScale = 7.0f;
@@ -239,7 +239,7 @@
         [TestMethod]
         public void InOut_Current1DetlaTime0p1_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 1.0f;
             float deltaTime = 0.1f;
 
@@ -252,7 +252,7 @@
         [TestMethod]
         public void InOut_Current1DetlaTime0p2_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 1.0f;
             float deltaTime = 0.2f;
 
@@ -265,7 +265,7 @@
         [TestMethod]
         public void InOut_Current0p5DetlaTime0p1_0p8362()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 0.5f;
             float deltaTime = 0.1f;
 
@@ -278,7 +278,7 @@
         [TestMethod]
         public void InOut_Current0p3DetlaTime0p1_0p7093()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 0.3f;
             float deltaTime = 0.1f;
 
@@ -291,7 +291,7 @@
         [TestMethod]
         public void InOut_Current7DetlaTime0p3YScale7TScale3_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 7.0f;
             float deltaTime = 0.3f;
             float yScale = 7.0f;
@@ -306,7 +306,7 @@
         [TestMethod]
         public void InOut_Current7DetlaTime0p6YScale7TScale3_1()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 7.0f;
             float deltaTime = 0.6f;
             float yScale = 7.0f;
@@ -321,7 +321,7 @@
         [TestMethod]
         public void InOut_Current3p5DetlaTime0p3YScale7TScale3_0p8362()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 3.5f;
             float deltaTime = 0.3f;
             float yScale = 7.0f;
@@ -336,7 +336,7 @@
         [TestMethod]
         public void InOut_Current2p1DetlaTime0p3YScale7TScale3_0p7093()
         {
-            Ease.Quintic ease = new Ease.Quintic();
+            Ease ease = new Quintic();
             float current = 2.1f;
             float deltaTime = 0.3f;
             float yScale = 7.0f;

@@ -49,6 +49,7 @@
     <Compile Include="Ease.Quartic.cs" />
     <Compile Include="Ease.Quintic.cs" />
     <Compile Include="IEase.cs" />
+    <Compile Include="Vector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

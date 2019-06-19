@@ -25,27 +25,36 @@ namespace Easing
 {
     using System;
 
-    public partial class Ease
+    public abstract class Ease
     {
-        private const float MIN = 0.0f;
-        private const float MAX = 1.0f;
-        private const float PI = (float)Math.PI;
+        public Point Origin { get; set; }
+        public Point Destination { get; set; }
 
-        private static void ScaleParameters(ref float y, ref float deltaX, float yScale, float xScale)
+        protected float Min;
+        protected float Max;
+        protected const float PI = (float)Math.PI;
+
+        public Ease()
         {
-            y /= yScale;
-            deltaX /= xScale;
+            Min = 0;
+            Max = 1;
         }
 
-        private static float CoordinatesWithinRange(float newY, float x)
+        public Ease(Point from, Point to)
         {
-            if (x <= MIN || newY <= MIN)
+            Origin = from;
+            Destination = to;
+        }
+
+        protected float CoordinatesWithinRange(float newY, float x)
+        {
+            if (x <= Min || newY <= Min)
             {
-                return MIN;
+                return Min;
             }
-            else if (x >= MAX || newY >= MAX)
+            else if (x >= Max || newY >= Max)
             {
-                return MAX;
+                return Max;
             }
             else
             {
@@ -53,22 +62,53 @@ namespace Easing
             }
         }
 
-        private static float Sin(float value)
+        public abstract float In(float y, float deltaX, float yScale = 1, float xScale = 1);
+        public abstract float InInverse(float y);
+        public abstract float InOut(float y, float deltaX, float yScale = 1, float xScale = 1);
+        public abstract float InOutInverse(float y);
+        public abstract float Out(float y, float deltaX, float yScale = 1, float xScale = 1);
+        public abstract float OutInverse(float y);
+
+        protected static void NormailzePoints(ref float y, ref float deltaX, float yScale, float xScale)
+        {
+            y /= yScale;
+            deltaX /= xScale;
+        }
+
+        protected void NormailzePoint(ref Point point)
+        {
+            point.X -= Origin.X;
+            point.Y -= Origin.Y;
+
+            point.X /= Destination.X - Origin.X;
+            point.Y /= Destination.Y - Origin.Y;
+        }
+
+        protected void DenormalizePoint(ref Point point)
+        {
+            point.X *= Destination.X - Origin.X;
+            point.Y *= Destination.Y - Origin.Y;
+
+            point.X += Origin.X;
+            point.Y += Origin.Y;
+        }
+
+        protected static float Sin(float value)
         {
             return (float)Math.Sin(value);
         }
 
-        private static float Asin(float value)
+        protected static float Asin(float value)
         {
             return (float)Math.Asin(value);
         }
 
-        private static float Sqrt(float value)
+        protected static float Sqrt(float value)
         {
             return (float)Math.Sqrt(value);
         }
 
-        private static float Pow(float value, float exponent)
+        protected static float Pow(float value, float exponent)
         {
             return (float)Math.Pow(Math.Abs(value), exponent);
         }
