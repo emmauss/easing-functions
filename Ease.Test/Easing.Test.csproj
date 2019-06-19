@@ -49,14 +49,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EaseLinearTest.cs" />
-    <Compile Include="EaseQuadraticTest.cs" />
+    <Compile Include="Functions\EaseLinearTest.cs" />
+    <Compile Include="Functions\EaseQuadraticTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EaseSineTest.cs" />
-    <Compile Include="EaseCubicTest.cs" />
-    <Compile Include="EaseQuarticTest.cs" />
-    <Compile Include="EaseQuinticTest.cs" />
-    <Compile Include="EaseCircularTest.cs" />
+    <Compile Include="Functions\EaseSineTest.cs" />
+    <Compile Include="Functions\EaseCubicTest.cs" />
+    <Compile Include="Functions\EaseQuarticTest.cs" />
+    <Compile Include="Functions\EaseQuinticTest.cs" />
+    <Compile Include="Functions\EaseCircularTest.cs" />
+    <Compile Include="PointTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -30,78 +30,40 @@ namespace Easing
         public Point Origin { get; set; }
         public Point Destination { get; set; }
 
-        protected float Min;
-        protected float Max;
         protected const float PI = (float)Math.PI;
 
         public Ease()
         {
-            Min = 0;
-            Max = 1;
+            Origin = Point.Zero;
+            Destination = new Point(1, 1);
         }
 
-        public Ease(Point from, Point to)
+        public Ease(Point origin, Point destination)
         {
-            Origin = from;
-            Destination = to;
+            Origin = origin;
+            Destination = destination;
         }
 
-        public abstract float In(float x);
+        public abstract Point In(float x);
 
-        public abstract float Out(float x);
+        public abstract Point Out(float x);
 
-        public abstract float InOut(float x);
+        public abstract Point InOut(float x);
 
-        public abstract float InInverse(float y);
+        public abstract Point InInverse(float y);
 
-        public abstract float OutInverse(float y);
+        public abstract Point OutInverse(float y);
 
-        public abstract float InOutInverse(float y);
+        public abstract Point InOutInverse(float y);
 
-        protected float NormailzeX(float x)
+        protected float ScaleX(float x)
         {
-            x -= Min;
-            x /= Max - Min;
-            return x;
+            return x / (Destination.Y - Origin.Y);
         }
 
-        protected float NormailzeY(float y)
+        protected float ScaleY(float y)
         {
-            y -= Min;
-            y /= Max - Min;
-            return y;
-        }
-
-        protected float DenormailzeX(float x)
-        {
-            x *= Max - Min;
-            x += Min;
-            return x;
-        }
-
-        protected float DenormailzeY(float y)
-        {
-            y *= Max - Min;
-            y += Min;
-            return y;
-        }
-
-        protected void NormailzePoint(ref Point point)
-        {
-            point.X -= Origin.X;
-            point.Y -= Origin.Y;
-
-            point.X /= Destination.X - Origin.X;
-            point.Y /= Destination.Y - Origin.Y;
-        }
-
-        protected void DenormalizePoint(ref Point point)
-        {
-            point.X *= Destination.X - Origin.X;
-            point.Y *= Destination.Y - Origin.Y;
-
-            point.X += Origin.X;
-            point.Y += Origin.Y;
+            return y * (Destination.X - Origin.X);
         }
 
         protected static float Sin(float value)

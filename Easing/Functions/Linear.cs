@@ -25,46 +25,56 @@ namespace Easing
 {
     public class Linear : Ease
     {
-        public override float In(float x)
+        public override Point In(float x)
         {
-            x = NormailzeX(x);
+            x = ScaleX(x);
             float y = x;
-            return NormailzeY(y);
+            y = ScaleY(y);
+
+            return new Point(x, y);
         }
 
-        public override float Out(float x)
+        public override Point Out(float x)
         {
-            x = NormailzeX(x);
+            x = ScaleX(x);
             float y = x;
-            return NormailzeY(y);
+            y = ScaleY(y);
+
+            return new Point(x, y);
         }
 
-        public override float InOut(float x)
+        public override Point InOut(float x)
         {
-            x = NormailzeX(x);
+            x = ScaleX(x);
             float y = x;
-            return NormailzeY(y);
+            y = ScaleY(y);
+
+            return new Point(x, y);
         }
 
-        public override float InInverse(float y)
+        public override Point InInverse(float y)
         {
-            y = NormailzeY(y);
+            y = ScaleX(y);
             float x = y;
-            return NormailzeX(x);
+            return new Point(x, y);
         }
 
-        public override float OutInverse(float y)
+        public override Point OutInverse(float y)
         {
-            y = NormailzeY(y);
+            y = ScaleX(y);
             float x = y;
-            return NormailzeX(x);
+            x = ScaleY(x);
+
+            return new Point(x, y);
         }
 
-        public override float InOutInverse(float y)
+        public override Point InOutInverse(float y)
         {
-            y = NormailzeY(y);
+            y = ScaleX(y);
             float x = y;
-            return NormailzeX(x);
+            x = ScaleY(x);
+
+            return new Point(x, y);
         }
     }
 }

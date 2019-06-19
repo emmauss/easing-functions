@@ -25,46 +25,58 @@ namespace Easing
 {
     public class Sine : Ease
     {
-        public override float In(float x)
+        public override Point In(float x)
         {
-            x = NormailzeX(x);
+            x = ScaleX(x);
             float y = 1 + Sin((PI / 2) * x - (PI / 2));
-            return NormailzeY(y);
+            y = ScaleY(y);
+
+            return new Point(x, y);
         }
 
-        public override float Out(float x)
+        public override Point Out(float x)
         {
-            x = NormailzeX(x);
+            x = ScaleX(x);
             float y = Sin((PI / 2) * x);
-            return NormailzeY(y);
+            y = ScaleY(y);
+
+            return new Point(x, y);
         }
 
-        public override float InOut(float x)
+        public override Point InOut(float x)
         {
-            x = NormailzeX(x);
+            x = ScaleX(x);
             float y = 0.5f + 0.5f * Sin((PI * x) - (PI / 2));
-            return NormailzeY(y);
+            y = ScaleY(y);
+
+            return new Point(x, y);
         }
 
-        public override float InInverse(float y)
+        public override Point InInverse(float y)
         {
-            y = NormailzeY(y);
+            y = ScaleX(y);
             float x = (2 * Asin(y - 1) + PI) / PI;
-            return NormailzeX(x);
+            x = ScaleY(x);
+
+            return new Point(x, y);
         }
 
-        public override float OutInverse(float y)
+        public override Point OutInverse(float y)
         {
-            y = NormailzeY(y);
+            y = ScaleX(y);
             float x = (2 * Asin(y)) / PI;
-            return NormailzeX(x);
+            x = ScaleY(x);
+
+            return new Point(x, y);
         }
 
-        public override float InOutInverse(float y)
+        public override Point InOutInverse(float y)
         {
-            y = NormailzeY(y);
+            y = ScaleX(y);
             float x = (2 * Asin((2 * y) - 1) + PI) / (2 * PI);
-            return NormailzeX(x);
+            x = ScaleY(x);
+
+            return new Point(x, y);
         }
     }
 }
