@@ -30,11 +30,13 @@ namespace Easing
     using System.Threading.Tasks;
 
 
-    public struct Point
+    public struct Point : IEquatable<Point>
     {
+        public static Point Zero { get => new Point(0, 0); }
+
         public float X { get; set; }
         public float Y { get; set; }
-
+        
         public Point(float x, float y)
         {
             X = x;
@@ -53,6 +55,42 @@ namespace Easing
             float newX = lhs.X + rhs.X;
             float newY = lhs.Y + rhs.Y;
             return new Point(newX, newY);
+        }
+
+        public static bool operator ==(Point lhs, Point rhs)
+        {
+            return lhs.Equals(rhs);
+        }
+
+        public static bool operator !=(Point lhs, Point rhs)
+        {
+            return !(lhs == rhs);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (GetType() != obj.GetType()) return false;
+            return Equals((Point)obj);
+        }
+
+        public bool Equals(Point point)
+        {
+            if (ReferenceEquals(this, point)) return true;
+            return (X == point.X) && (Y == point.Y);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                const int HashingBase = (int)2166136261;
+                const int HashingMultiplier = 16777619;
+
+                int hash = HashingBase;
+                hash = (hash * HashingMultiplier) ^ (int)X;
+                hash = (hash * HashingMultiplier) ^ (int)Y;
+                return hash;
+            }
         }
     }
 }

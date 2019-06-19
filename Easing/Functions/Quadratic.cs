@@ -25,23 +25,27 @@ namespace Easing
 {
     public class Quadratic : Ease
     {
-        public override float In(float x)
+        public override Point In(float x)
         {
-            x = NormailzeX(x);
+            x = ScaleX(x);
             float y = Pow(x, 2);
-            return NormailzeY(y);
+            y = ScaleY(y);
+
+            return new Point(x, y);
         }
 
-        public override float Out(float x)
+        public override Point Out(float x)
         {
-            x = NormailzeX(x);
+            x = ScaleX(x);
             float y = 1 - Pow(x - 1, 2);
-            return NormailzeY(y);
+            y = ScaleY(y);
+
+            return new Point(x, y);
         }
 
-        public override float InOut(float x)
+        public override Point InOut(float x)
         {
-            x = NormailzeX(x);
+            x = ScaleX(x);
             float y = 0.5f;
 
             if (x < 0.5)
@@ -49,26 +53,32 @@ namespace Easing
             else if (x > 0.5)
                 y = 1 - 2 * Pow(x - 1, 2);
 
-            return NormailzeY(y);
+            y = ScaleY(y);
+
+            return new Point(x, y);
         }
 
-        public override float InInverse(float y)
+        public override Point InInverse(float y)
         {
-            y = NormailzeY(y);
+            y = ScaleX(y);
             float x = Sqrt(y);
-            return NormailzeX(x);
+            x = ScaleY(x);
+
+            return new Point(x, y);
         }
 
-        public override float OutInverse(float y)
+        public override Point OutInverse(float y)
         {
-            y = NormailzeY(y);
+            y = ScaleX(y);
             float x = 1 - Sqrt(1 - y);
-            return NormailzeX(x);
+            x = ScaleY(x);
+
+            return new Point(x, y);
         }
 
-        public override float InOutInverse(float y)
+        public override Point InOutInverse(float y)
         {
-            y = NormailzeY(y);
+            y = ScaleX(y);
             float x = 0.5f;
 
             if (y < 0.5)
@@ -76,7 +86,9 @@ namespace Easing
             else if (y > 0.5)
                 x = 1 - Sqrt(-(y - 1) / 2);
 
-            return NormailzeX(x);
+            x = ScaleY(x);
+
+            return new Point(x, y);
         }
     }
 }
