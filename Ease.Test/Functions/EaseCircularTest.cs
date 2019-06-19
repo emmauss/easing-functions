@@ -143,7 +143,7 @@
         }
 
         [TestMethod]
-        public void InOutInverse_Xis0p6_Yis0p5101()
+        public void InOutInverse_Yis0p6_Xis0p5101()
         {
             Ease ease = new Circular();
             float y = 0.6f;
@@ -156,7 +156,7 @@
         }
 
         [TestMethod]
-        public void InOutInverse_Xis0p3_Yis0p4583()
+        public void InOutInverse_Yis0p3_Xis0p4583()
         {
             Ease ease = new Circular();
             float y = 0.3f;

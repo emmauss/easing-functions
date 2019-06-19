@@ -33,7 +33,7 @@
         }
 
         [TestMethod]
-        public void InInverse_Xis0p6_Yis0p738()
+        public void InInverse_Yis0p6_Xis0p738()
         {
             Ease ease = new Sine();
             float y = 0.6f;
@@ -46,7 +46,7 @@
         }
 
         [TestMethod]
-        public void InInverse_Xis0p3_Yis0p5064()
+        public void InInverse_Yis0p3_Xis0p5064()
         {
             Ease ease = new Sine();
             float y = 0.3f;
@@ -88,7 +88,7 @@
         }
 
         [TestMethod]
-        public void OutInverse_Xis0p6_Yis0p4097()
+        public void OutInverse_Yis0p6_Xis0p4097()
         {
             Ease ease = new Sine();
             float y = 0.6f;
@@ -101,7 +101,7 @@
         }
 
         [TestMethod]
-        public void OutInverse_Xis0p3_Yis0p194()
+        public void OutInverse_Yis0p3_Xis0p194()
         {
             Ease ease = new Sine();
             float y = 0.3f;
@@ -143,7 +143,7 @@
         }
 
         [TestMethod]
-        public void InOutInverse_Xis0p6_Yis0p5641()
+        public void InOutInverse_Yis0p6_Xis0p5641()
         {
             Ease ease = new Sine();
             float y = 0.6f;
@@ -156,7 +156,7 @@
         }
 
         [TestMethod]
-        public void InOutInverse_Xis0p3_Yis0p369()
+        public void InOutInverse_Yis0p3_Xis0p369()
         {
             Ease ease = new Sine();
             float y = 0.3f;
