@@ -57,6 +57,66 @@
             Assert.AreEqual(expected.X, actual.X, 0.001f);
             Assert.AreEqual(expected.Y, actual.Y, 0.001f);
         }
+
+        [TestMethod]
+        public void In_Xis3p6_Yis3p2()
+        {
+            Point origin = new Point(3, 3);
+            Point destination = new Point(4, 4);
+            Ease ease = new Circular(origin, destination);
+            float x = 3.6f;
+
+            Point expected = new Point(x, 3.2f);
+            Point actual = ease.In(x);
+
+            Assert.AreEqual(expected.X, actual.X, 0.001f);
+            Assert.AreEqual(expected.Y, actual.Y, 0.001f);
+        }
+
+        [TestMethod]
+        public void In_Xis3p3_Yis3p0461()
+        {
+            Point origin = new Point(3, 3);
+            Point destination = new Point(4, 4);
+            Ease ease = new Circular(origin, destination);
+            float x = 3.3f;
+
+            Point expected = new Point(x, 3.0461f);
+            Point actual = ease.In(x);
+
+            Assert.AreEqual(expected.X, actual.X, 0.001f);
+            Assert.AreEqual(expected.Y, actual.Y, 0.001f);
+        }
+
+        [TestMethod]
+        public void InInverse_Yis3p6_Xis3p9165()
+        {
+            Point origin = new Point(3, 3);
+            Point destination = new Point(4, 4);
+            Ease ease = new Circular(origin, destination);
+            float y = 3.6f;
+
+            Point expected = new Point(3.9165f, y);
+            Point actual = ease.InInverse(y);
+
+            Assert.AreEqual(expected.X, actual.X, 0.001f);
+            Assert.AreEqual(expected.Y, actual.Y, 0.001f);
+        }
+
+        [TestMethod]
+        public void InInverse_Yis3p3_Xis3p7141()
+        {
+            Point origin = new Point(3, 3);
+            Point destination = new Point(4, 4);
+            Ease ease = new Circular(origin, destination);
+            float y = 3.3f;
+
+            Point expected = new Point(3.7141f, y);
+            Point actual = ease.InInverse(y);
+
+            Assert.AreEqual(expected.X, actual.X, 0.001f);
+            Assert.AreEqual(expected.Y, actual.Y, 0.001f);
+        }
         #endregion
 
 

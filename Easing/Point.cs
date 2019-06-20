@@ -28,10 +28,15 @@ namespace Easing
     public struct Point : IEquatable<Point>
     {
         public static Point Zero { get => new Point(0, 0); }
-
         public float X { get; set; }
         public float Y { get; set; }
-        
+
+        public Point(Point point)
+        {
+            X = point.X;
+            Y = point.Y;
+        }
+
         public Point(float x, float y)
         {
             X = x;
@@ -82,8 +87,8 @@ namespace Easing
                 const int HashingMultiplier = 16777619;
 
                 int hash = HashingBase;
-                hash = (hash * HashingMultiplier) ^ (int)X;
-                hash = (hash * HashingMultiplier) ^ (int)Y;
+                hash = (hash * HashingMultiplier) ^ (int)(X * 1000);
+                hash = (hash * HashingMultiplier) ^ (int)(Y * 1000);
                 return hash;
             }
         }

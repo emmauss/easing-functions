@@ -29,7 +29,6 @@ namespace Easing
     {
         public Point Origin { get; set; }
         public Point Destination { get; set; }
-
         protected const float PI = (float)Math.PI;
 
         public Ease()
@@ -44,26 +43,18 @@ namespace Easing
             Destination = destination;
         }
 
-        public abstract Point In(float x);
-
-        public abstract Point Out(float x);
-
-        public abstract Point InOut(float x);
-
-        public abstract Point InInverse(float y);
-
-        public abstract Point OutInverse(float y);
-
-        public abstract Point InOutInverse(float y);
-
-        protected float ScaleX(float x)
+        protected float NormaliseInput(float input)
         {
-            return x / (Destination.Y - Origin.Y);
+            input -= Origin.X;
+            input /= Destination.X - Origin.X;
+            return input;
         }
 
-        protected float ScaleY(float y)
+        protected float DenormaliseOutput(float output)
         {
-            return y * (Destination.X - Origin.X);
+            output *= Destination.Y - Origin.Y;
+            output += Origin.Y;
+            return output;
         }
 
         protected static float Sin(float value)
@@ -85,5 +76,17 @@ namespace Easing
         {
             return (float)Math.Pow(Math.Abs(value), exponent);
         }
+
+        public abstract Point In(float x);
+
+        public abstract Point Out(float x);
+
+        public abstract Point InOut(float x);
+
+        public abstract Point InInverse(float y);
+
+        public abstract Point OutInverse(float y);
+
+        public abstract Point InOutInverse(float y);
     }
 }

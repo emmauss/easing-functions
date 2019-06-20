@@ -31,54 +31,54 @@ namespace Easing
 
         public override Point In(float x)
         {
-            x = ScaleX(x);
+            x = NormaliseInput(x);
             float y = 1 + Sin((PI / 2) * x - (PI / 2));
-            y = ScaleY(y);
+            y = DenormaliseOutput(y);
 
             return new Point(x, y);
         }
 
         public override Point Out(float x)
         {
-            x = ScaleX(x);
+            x = NormaliseInput(x);
             float y = Sin((PI / 2) * x);
-            y = ScaleY(y);
+            y = DenormaliseOutput(y);
 
             return new Point(x, y);
         }
 
         public override Point InOut(float x)
         {
-            x = ScaleX(x);
+            x = NormaliseInput(x);
             float y = 0.5f + 0.5f * Sin((PI * x) - (PI / 2));
-            y = ScaleY(y);
+            y = DenormaliseOutput(y);
 
             return new Point(x, y);
         }
 
         public override Point InInverse(float y)
         {
-            y = ScaleX(y);
+            y = NormaliseInput(y);
             float x = (2 * Asin(y - 1) + PI) / PI;
-            x = ScaleY(x);
+            x = DenormaliseOutput(x);
 
             return new Point(x, y);
         }
 
         public override Point OutInverse(float y)
         {
-            y = ScaleX(y);
+            y = NormaliseInput(y);
             float x = (2 * Asin(y)) / PI;
-            x = ScaleY(x);
+            x = DenormaliseOutput(x);
 
             return new Point(x, y);
         }
 
         public override Point InOutInverse(float y)
         {
-            y = ScaleX(y);
+            y = NormaliseInput(y);
             float x = (2 * Asin((2 * y) - 1) + PI) / (2 * PI);
-            x = ScaleY(x);
+            x = DenormaliseOutput(x);
 
             return new Point(x, y);
         }

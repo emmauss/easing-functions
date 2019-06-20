@@ -31,25 +31,25 @@ namespace Easing
 
         public override Point In(float x)
         {
-            x = ScaleX(x);
+            x = NormaliseInput(x);
             float y = Pow(x, 2);
-            y = ScaleY(y);
+            y = DenormaliseOutput(y);
 
             return new Point(x, y);
         }
 
         public override Point Out(float x)
         {
-            x = ScaleX(x);
+            x = NormaliseInput(x);
             float y = 1 - Pow(x - 1, 2);
-            y = ScaleY(y);
+            y = DenormaliseOutput(y);
 
             return new Point(x, y);
         }
 
         public override Point InOut(float x)
         {
-            x = ScaleX(x);
+            x = NormaliseInput(x);
             float y = 0.5f;
 
             if (x < 0.5)
@@ -57,32 +57,32 @@ namespace Easing
             else if (x > 0.5)
                 y = 1 - 2 * Pow(x - 1, 2);
 
-            y = ScaleY(y);
+            y = DenormaliseOutput(y);
 
             return new Point(x, y);
         }
 
         public override Point InInverse(float y)
         {
-            y = ScaleX(y);
+            y = NormaliseInput(y);
             float x = Sqrt(y);
-            x = ScaleY(x);
+            x = DenormaliseOutput(x);
 
             return new Point(x, y);
         }
 
         public override Point OutInverse(float y)
         {
-            y = ScaleX(y);
+            y = NormaliseInput(y);
             float x = 1 - Sqrt(1 - y);
-            x = ScaleY(x);
+            x = DenormaliseOutput(x);
 
             return new Point(x, y);
         }
 
         public override Point InOutInverse(float y)
         {
-            y = ScaleX(y);
+            y = NormaliseInput(y);
             float x = 0.5f;
 
             if (y < 0.5)
@@ -90,7 +90,7 @@ namespace Easing
             else if (y > 0.5)
                 x = 1 - Sqrt(-(y - 1) / 2);
 
-            x = ScaleY(x);
+            x = DenormaliseOutput(x);
 
             return new Point(x, y);
         }
