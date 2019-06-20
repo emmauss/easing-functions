@@ -31,8 +31,8 @@ namespace Easing
 
         public override Point In(float x)
         {
-            x = NormaliseInput(x);
-            float y = 1 + Sin((PI / 2) * x - (PI / 2));
+            float normalisedX = NormaliseInput(x);
+            float y = 1 + Sin((PI / 2) * normalisedX - (PI / 2));
             y = DenormaliseOutput(y);
 
             return new Point(x, y);
@@ -40,8 +40,8 @@ namespace Easing
 
         public override Point Out(float x)
         {
-            x = NormaliseInput(x);
-            float y = Sin((PI / 2) * x);
+            float normalisedX = NormaliseInput(x);
+            float y = Sin((PI / 2) * normalisedX);
             y = DenormaliseOutput(y);
 
             return new Point(x, y);
@@ -49,8 +49,8 @@ namespace Easing
 
         public override Point InOut(float x)
         {
-            x = NormaliseInput(x);
-            float y = 0.5f + 0.5f * Sin((PI * x) - (PI / 2));
+            float normalisedX = NormaliseInput(x);
+            float y = 0.5f + 0.5f * Sin((PI * normalisedX) - (PI / 2));
             y = DenormaliseOutput(y);
 
             return new Point(x, y);
@@ -58,8 +58,8 @@ namespace Easing
 
         public override Point InInverse(float y)
         {
-            y = NormaliseInput(y);
-            float x = (2 * Asin(y - 1) + PI) / PI;
+            float normalisedY = NormaliseInput(y);
+            float x = (2 * Asin(normalisedY - 1) + PI) / PI;
             x = DenormaliseOutput(x);
 
             return new Point(x, y);
@@ -67,8 +67,8 @@ namespace Easing
 
         public override Point OutInverse(float y)
         {
-            y = NormaliseInput(y);
-            float x = (2 * Asin(y)) / PI;
+            float normalisedY = NormaliseInput(y);
+            float x = (2 * Asin(normalisedY)) / PI;
             x = DenormaliseOutput(x);
 
             return new Point(x, y);
@@ -76,8 +76,8 @@ namespace Easing
 
         public override Point InOutInverse(float y)
         {
-            y = NormaliseInput(y);
-            float x = (2 * Asin((2 * y) - 1) + PI) / (2 * PI);
+            float normalisedY = NormaliseInput(y);
+            float x = (2 * Asin((2 * normalisedY) - 1) + PI) / (2 * PI);
             x = DenormaliseOutput(x);
 
             return new Point(x, y);

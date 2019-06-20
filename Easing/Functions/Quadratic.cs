@@ -31,8 +31,8 @@ namespace Easing
 
         public override Point In(float x)
         {
-            x = NormaliseInput(x);
-            float y = Pow(x, 2);
+            float normalisedX = NormaliseInput(x);
+            float y = Pow(normalisedX, 2);
             y = DenormaliseOutput(y);
 
             return new Point(x, y);
@@ -40,8 +40,8 @@ namespace Easing
 
         public override Point Out(float x)
         {
-            x = NormaliseInput(x);
-            float y = 1 - Pow(x - 1, 2);
+            float normalisedX = NormaliseInput(x);
+            float y = 1 - Pow(normalisedX - 1, 2);
             y = DenormaliseOutput(y);
 
             return new Point(x, y);
@@ -49,13 +49,13 @@ namespace Easing
 
         public override Point InOut(float x)
         {
-            x = NormaliseInput(x);
+            float normalisedX = NormaliseInput(x);
             float y = 0.5f;
 
             if (x < 0.5)
-                y = 2 * Pow(x, 2);
+                y = 2 * Pow(normalisedX, 2);
             else if (x > 0.5)
-                y = 1 - 2 * Pow(x - 1, 2);
+                y = 1 - 2 * Pow(normalisedX - 1, 2);
 
             y = DenormaliseOutput(y);
 
@@ -64,8 +64,8 @@ namespace Easing
 
         public override Point InInverse(float y)
         {
-            y = NormaliseInput(y);
-            float x = Sqrt(y);
+            float normalisedY = NormaliseInput(y);
+            float x = Sqrt(normalisedY);
             x = DenormaliseOutput(x);
 
             return new Point(x, y);
@@ -73,8 +73,8 @@ namespace Easing
 
         public override Point OutInverse(float y)
         {
-            y = NormaliseInput(y);
-            float x = 1 - Sqrt(1 - y);
+            float normalisedY = NormaliseInput(y);
+            float x = 1 - Sqrt(1 - normalisedY);
             x = DenormaliseOutput(x);
 
             return new Point(x, y);
@@ -82,13 +82,13 @@ namespace Easing
 
         public override Point InOutInverse(float y)
         {
-            y = NormaliseInput(y);
+            float normalisedY = NormaliseInput(y);
             float x = 0.5f;
 
             if (y < 0.5)
-                x = Sqrt(y / 2);
+                x = Sqrt(normalisedY / 2);
             else if (y > 0.5)
-                x = 1 - Sqrt(-(y - 1) / 2);
+                x = 1 - Sqrt(-(normalisedY - 1) / 2);
 
             x = DenormaliseOutput(x);
 

@@ -31,8 +31,8 @@ namespace Easing
 
         public override Point In(float x)
         {
-            x = NormaliseInput(x);
-            float y = x;
+            float normalisedX = NormaliseInput(x);
+            float y = normalisedX;
             y = DenormaliseOutput(y);
 
             return new Point(x, y);
@@ -40,8 +40,8 @@ namespace Easing
 
         public override Point Out(float x)
         {
-            x = NormaliseInput(x);
-            float y = x;
+            float normalisedX = NormaliseInput(x);
+            float y = normalisedX;
             y = DenormaliseOutput(y);
 
             return new Point(x, y);
@@ -49,8 +49,8 @@ namespace Easing
 
         public override Point InOut(float x)
         {
-            x = NormaliseInput(x);
-            float y = x;
+            float normalisedX = NormaliseInput(x);
+            float y = normalisedX;
             y = DenormaliseOutput(y);
 
             return new Point(x, y);
@@ -58,15 +58,17 @@ namespace Easing
 
         public override Point InInverse(float y)
         {
-            y = NormaliseInput(y);
-            float x = y;
+            float normalisedY = NormaliseInput(y);
+            float x = normalisedY;
+            x = DenormaliseOutput(x);
+
             return new Point(x, y);
         }
 
         public override Point OutInverse(float y)
         {
-            y = NormaliseInput(y);
-            float x = y;
+            float normalisedY = NormaliseInput(y);
+            float x = normalisedY;
             x = DenormaliseOutput(x);
 
             return new Point(x, y);
@@ -74,8 +76,8 @@ namespace Easing
 
         public override Point InOutInverse(float y)
         {
-            y = NormaliseInput(y);
-            float x = y;
+            float normalisedY = NormaliseInput(y);
+            float x = normalisedY;
             x = DenormaliseOutput(x);
 
             return new Point(x, y);
