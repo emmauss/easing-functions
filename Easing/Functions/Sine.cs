@@ -31,6 +31,15 @@ namespace Easing
 
         public override Point In(float x)
         {
+            if (x > Destination.X)
+            {
+                return Destination;
+            }
+            else if (x < Origin.X)
+            {
+                return Origin;
+            }
+
             float normalisedX = NormaliseInput(x);
             float y = 1 + Sin((PI / 2) * normalisedX - (PI / 2));
             y = DenormaliseOutput(y);
@@ -40,6 +49,15 @@ namespace Easing
 
         public override Point Out(float x)
         {
+            if (x > Destination.X)
+            {
+                return Destination;
+            }
+            else if (x < Origin.X)
+            {
+                return Origin;
+            }
+
             float normalisedX = NormaliseInput(x);
             float y = Sin((PI / 2) * normalisedX);
             y = DenormaliseOutput(y);
@@ -49,6 +67,15 @@ namespace Easing
 
         public override Point InOut(float x)
         {
+            if (x > Destination.X)
+            {
+                return Destination;
+            }
+            else if (x < Origin.X)
+            {
+                return Origin;
+            }
+
             float normalisedX = NormaliseInput(x);
             float y = 0.5f + 0.5f * Sin((PI * normalisedX) - (PI / 2));
             y = DenormaliseOutput(y);
@@ -58,6 +85,15 @@ namespace Easing
 
         public override Point InInverse(float y)
         {
+            if (y > Destination.Y)
+            {
+                return Destination;
+            }
+            else if (y < Origin.Y)
+            {
+                return Origin;
+            }
+
             float normalisedY = NormaliseInput(y);
             float x = (2 * Asin(normalisedY - 1) + PI) / PI;
             x = DenormaliseOutput(x);
@@ -67,6 +103,15 @@ namespace Easing
 
         public override Point OutInverse(float y)
         {
+            if (y > Destination.Y)
+            {
+                return Destination;
+            }
+            else if (y < Origin.Y)
+            {
+                return Origin;
+            }
+
             float normalisedY = NormaliseInput(y);
             float x = (2 * Asin(normalisedY)) / PI;
             x = DenormaliseOutput(x);
@@ -76,6 +121,15 @@ namespace Easing
 
         public override Point InOutInverse(float y)
         {
+            if (y > Destination.Y)
+            {
+                return Destination;
+            }
+            else if (y < Origin.Y)
+            {
+                return Origin;
+            }
+
             float normalisedY = NormaliseInput(y);
             float x = (2 * Asin((2 * normalisedY) - 1) + PI) / (2 * PI);
             x = DenormaliseOutput(x);

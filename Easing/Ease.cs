@@ -43,6 +43,24 @@ namespace Easing
             Destination = destination;
         }
 
+        protected Point SetPointWithinRange(Point point)
+        {
+            if (point.X < Origin.X || point.Y < Origin.Y)
+            {
+                return Origin;
+            }
+            else if (point.X > Destination.X || point.Y > Destination.Y)
+            {
+                return Destination;
+            }
+            else if (float.IsNaN(point.X) || float.IsNaN(point.Y))
+            {
+                return Destination;
+            }
+
+            return point;
+        }
+
         protected float NormaliseInput(float input)
         {
             input -= Origin.X;
@@ -74,7 +92,12 @@ namespace Easing
 
         protected static float Pow(float value, float exponent)
         {
-            return (float)Math.Pow(Math.Abs(value), exponent);
+            return (float)Math.Pow(value, exponent);
+        }
+
+        protected static float Abs(float value)
+        {
+            return Math.Abs(value);
         }
 
         public abstract Point In(float x);
