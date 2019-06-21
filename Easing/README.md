@@ -13,26 +13,26 @@ on an ease, and then use `X + Time.deltaTime` to find the next velocity).
 
 ###### Ease functions signatures
 ```C#
-// Finds Y using X, returns new Point(X, Y).
-public abstract Point In(float x);
-public abstract Point Out(float x);
-public abstract Point InOut(float x);
+// Finds y using input x.
+public abstract float In(float x);
+public abstract float Out(float x);
+public abstract float InOut(float x);
 
-// Finds X using Y, returns new Point(X, Y).
-public abstract Point InInverse(float y);
-public abstract Point OutInverse(float y);
-public abstract Point InOutInverse(float y);
+// Finds x using input y.
+public abstract float InInverse(float y);
+public abstract float OutInverse(float y);
+public abstract float InOutInverse(float y);
 ```
 
 ###### Demonstration of using ease functions
 ```C#
 Ease ease = new Cubic();
 
-Point inPoint = ease.In(0.5f); // returns Point (X = 0.5f, Y = 0.125f)
-Point outPoint = ease.Out(0.5f); // returns Point (X = 0.5f, Y = 0.794f)
+float inPoint = ease.In(0.5f); // returns 0.125f
+float outPoint = ease.Out(0.5f); // returns 0.794f
 
-Point inInversePoint = ease.InInverse(0.125f); // returns Point (X = 0.5f, Y = 0.125f)
-Point outInversePoint = ease.OutInverse(0.794f); // returns Point (X = 0.5f, Y = 0.794f)
+float inInversePoint = ease.InInverse(0.125f); // returns 0.5f
+float outInversePoint = ease.OutInverse(0.794f); // returns 0.5f
 ```
 
 ##### Point struct
@@ -61,12 +61,3 @@ with the Cubic Out function, that will map a graph that looks like this:
 ##### Extra Notes
 The `Destination` of an ease object must **_always_** be greater than the `Origin` (`X` **and** `Y` value is greater). I may add functionality 
 so that you can have an `Origin` and `Destination` that have no constraints on where they can be placed, but for now it is not like that.
-
-If you ever input an `X` or `Y` value into an ease function that is below the range of the origin, the function will return 
-the `Origin` point. And if you ever input an `X` or `Y` value into an ease function that is above the range of the destination, 
-the function will return the `Destination` point.
-
-This only happened in early development bug fixes but, if for what ever reason your input resulted in an `X` or `Y` value that is `NaN` (not a number), the point returned will be the 
-`Destination` point. The reason I decided the destination point should be returned is due to the fact that we're trying to get a 
-number from one value to another value, if there is a `NaN` float breaking our chance of easing the change in value, it should at 
-the very least get the value to it's destination, eased or not.
