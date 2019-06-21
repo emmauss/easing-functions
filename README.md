@@ -5,10 +5,10 @@ All the animations and graphics you are going to see where made in Unity3D, usin
 
 Here's an example of the *Quartic In-Out* ease function.
 
-![Quartic In-Out animation](/ReadmeImages/images/quartic-inout.png)
+![Quartic In-Out animation](/ReadmeImages/gifs/quartic-inout.png)
 
 #### Current Easing functions
-These following functions in the images are made on a 1:1 scaled graph.
+The following functions graphs in the images are made on a 1:1 scale.
 
 | Ease Type | In | Out | In-Out |
 | --- | --- | --- | --- |
