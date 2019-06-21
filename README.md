@@ -1,15 +1,14 @@
-## Easing functions for C#
-A group of easing functions in C#, to transition a changing numeric value.
-
-All the animations and graphics you are going to see where made in Unity3D, using this code.
+## About
+This is group of easing functions in C#. Which can be used to transition a changing numeric value from an origin to a destination value in a visually pleasing way.
 
 Here's an example of the *Quartic In-Out* ease function.
 
-![Quartic In-Out animation](/ReadmeImages/gifs/quartic-inout.png)
+![Quartic In-Out animation](/ReadmeImages/gifs/quartic-inout.gif)
 
-#### Current Easing functions
-The following functions graphs in the images are made on a 1:1 scale.
+### How to use
+View the [Easing folder README](/Easing/README.md) for a detailed description for how to use this.
 
+### Current Easing functions
 | Ease Type | In | Out | In-Out |
 | --- | --- | --- | --- |
 | Linear | ![Linear](/ReadmeImages/images/linear.png) | ![Linear](/ReadmeImages/images/linear.png) | ![Linear](/ReadmeImages/images/linear.png) |
