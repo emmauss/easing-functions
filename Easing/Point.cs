@@ -24,6 +24,7 @@ SOFTWARE.
 namespace Easing
 {
     using System;
+    using System.Drawing;
 
     public struct Point : IEquatable<Point>
     {
@@ -65,6 +66,16 @@ namespace Easing
         public static bool operator !=(Point lhs, Point rhs)
         {
             return !(lhs == rhs);
+        }
+
+        public static implicit operator Point(System.Drawing.Point rhs)
+        {
+            return new Point(rhs.X, rhs.Y);
+        }
+
+        public static implicit operator System.Drawing.Point(Point rhs)
+        {
+            return new Point(rhs.X, rhs.Y);
         }
 
         public override bool Equals(object obj)
