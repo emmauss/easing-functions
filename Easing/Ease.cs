@@ -75,6 +75,26 @@ namespace Easing
             return output;
         }
 
+        protected float ValueWhenAboveRange()
+        {
+            return Destination.Y;
+        }
+
+        protected float ValueWhenUnderRange()
+        {
+            return Origin.Y;
+        }
+
+        protected float InverseValueWhenAboveRange()
+        {
+            return Destination.X;
+        }
+
+        protected float InverseValueWhenUnderRange()
+        {
+            return Origin.X;
+        }
+
         protected static float Sin(float value)
         {
             return (float)Math.Sin(value);
@@ -100,16 +120,16 @@ namespace Easing
             return Math.Abs(value);
         }
 
-        public abstract Point In(float x);
+        public abstract float In(float x);
 
-        public abstract Point Out(float x);
+        public abstract float Out(float x);
 
-        public abstract Point InOut(float x);
+        public abstract float InOut(float x);
 
-        public abstract Point InInverse(float y);
+        public abstract float InInverse(float y);
 
-        public abstract Point OutInverse(float y);
+        public abstract float OutInverse(float y);
 
-        public abstract Point InOutInverse(float y);
+        public abstract float InOutInverse(float y);
     }
 }

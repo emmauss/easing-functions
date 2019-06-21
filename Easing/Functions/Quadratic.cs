@@ -29,51 +29,51 @@ namespace Easing
 
         public Quadratic(Point origin, Point destination) : base(origin, destination) { }
 
-        public override Point In(float x)
+        public override float In(float x)
         {
             if (x > Destination.X)
             {
-                return Destination;
+                return ValueWhenAboveRange();
             }
             else if (x < Origin.X)
             {
-                return Origin;
+                return ValueWhenUnderRange();
             }
 
             float normalisedX = NormaliseInput(x);
             float y = Pow(normalisedX, 2);
             y = DenormaliseOutput(y);
 
-            return new Point(x, y);
+			return y;
         }
 
-        public override Point Out(float x)
+        public override float Out(float x)
         {
             if (x > Destination.X)
             {
-                return Destination;
+                return ValueWhenAboveRange();
             }
             else if (x < Origin.X)
             {
-                return Origin;
+                return ValueWhenUnderRange();
             }
 
             float normalisedX = NormaliseInput(x);
             float y = 1 - Pow(normalisedX - 1, 2);
             y = DenormaliseOutput(y);
 
-            return new Point(x, y);
+			return y;
         }
 
-        public override Point InOut(float x)
+        public override float InOut(float x)
         {
             if (x > Destination.X)
             {
-                return Destination;
+                return ValueWhenAboveRange();
             }
             else if (x < Origin.X)
             {
-                return Origin;
+                return ValueWhenUnderRange();
             }
 
             float normalisedX = NormaliseInput(x);
@@ -90,55 +90,55 @@ namespace Easing
 
             y = DenormaliseOutput(y);
 
-            return new Point(x, y);
+			return y;
         }
 
-        public override Point InInverse(float y)
+        public override float InInverse(float y)
         {
             if (y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (y < Origin.Y)
-            {
-                return Origin;
-            }
+			{
+				return InverseValueWhenAboveRange();
+			}
+			else if (y < Origin.Y)
+			{
+				return InverseValueWhenUnderRange();
+			}
 
             float normalisedY = NormaliseInput(y);
             float x = Sqrt(normalisedY);
             x = DenormaliseOutput(x);
 
-            return new Point(x, y);
+			return x;
         }
 
-        public override Point OutInverse(float y)
+        public override float OutInverse(float y)
         {
             if (y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (y < Origin.Y)
-            {
-                return Origin;
-            }
+			{
+				return InverseValueWhenAboveRange();
+			}
+			else if (y < Origin.Y)
+			{
+				return InverseValueWhenUnderRange();
+			}
 
             float normalisedY = NormaliseInput(y);
             float x = 1 - Sqrt(1 - normalisedY);
             x = DenormaliseOutput(x);
 
-            return new Point(x, y);
+			return x;
         }
 
-        public override Point InOutInverse(float y)
+        public override float InOutInverse(float y)
         {
             if (y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (y < Origin.Y)
-            {
-                return Origin;
-            }
+			{
+				return InverseValueWhenAboveRange();
+			}
+			else if (y < Origin.Y)
+			{
+				return InverseValueWhenUnderRange();
+			}
 
             float normalisedY = NormaliseInput(y);
             float x = 0.5f;
@@ -154,7 +154,7 @@ namespace Easing
 
             x = DenormaliseOutput(x);
 
-            return new Point(x, y);
+			return x;
         }
     }
 }

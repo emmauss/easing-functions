@@ -61,23 +61,23 @@
 
         private void MoveEaseInLabel()
         {
-            int newDistance = (int)ease.In(ticks).Y;
+            //int newDistance = (int)ease.In(ticks).Y;
 
-            inLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
+            //inLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
         }
 
         private void MoveEaseOutLabel()
         {
-            int newDistance = (int)ease.Out(ticks).Y;
+            //int newDistance = (int)ease.Out(ticks).Y;
 
-            outLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
+            //outLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
         }
 
         private void MoveEaseInOutLabel()
         {
-            int newDistance = (int)ease.InOut(ticks).Y;
+            //int newDistance = (int)ease.InOut(ticks).Y;
 
-            inOutLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
+            //inOutLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
         }
 
         private void BtnPerformAll_Click(object sender, EventArgs e)
