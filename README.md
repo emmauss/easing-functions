@@ -6,7 +6,12 @@ Here's an example of the *Quartic In-Out* ease function.
 ![Quartic In-Out animation](/ReadmeImages/gifs/quartic-inout.gif)
 
 ### How to use
-View the [Easing folder README](/Easing/README.md) for a detailed description for how to use this.
+View the [Easing folder README](/Easing) for a detailed description for how to use this.
+
+You can also look at the [Easing tests](/Easing.Test/Functions) to see many cases where I used the ease classes and how I used them.
+
+Keep in mind, these easing classes follow mathematical functions, you can see the formulas for these functions in the 
+[EaseFormulas Excel document](/EaseFormulas.xlsx). You can also use this for inspiration if you want to make a new ease class.
 
 ### Current Easing functions
 | Ease Type | In | Out | In-Out |
