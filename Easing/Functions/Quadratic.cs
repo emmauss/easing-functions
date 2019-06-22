@@ -27,134 +27,76 @@ namespace Easing
     {
         public Quadratic() : base() { }
 
-        public Quadratic(Point origin, Point destination) : base(origin, destination) { }
+        public Quadratic(Vector scale) : base(scale) { }
 
-        public override Point In(float x)
+        public override float In(float x)
         {
-            if (x > Destination.X)
-            {
-                return Destination;
-            }
-            else if (x < Origin.X)
-            {
-                return Origin;
-            }
-
-            float normalisedX = NormaliseInput(x);
-            float y = Pow(normalisedX, 2);
-            y = DenormaliseOutput(y);
-
-            return new Point(x, y);
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * Pow(normalisedX, 2);
+            
+            return OutputInRange(x, y);
         }
 
-        public override Point Out(float x)
+        public override float Out(float x)
         {
-            if (x > Destination.X)
-            {
-                return Destination;
-            }
-            else if (x < Origin.X)
-            {
-                return Origin;
-            }
-
-            float normalisedX = NormaliseInput(x);
-            float y = 1 - Pow(normalisedX - 1, 2);
-            y = DenormaliseOutput(y);
-
-            return new Point(x, y);
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y - Scale.Y * Pow(normalisedX - 1, 2);
+            
+            return OutputInRange(x, y);
         }
 
-        public override Point InOut(float x)
+        public override float InOut(float x)
         {
-            if (x > Destination.X)
-            {
-                return Destination;
-            }
-            else if (x < Origin.X)
-            {
-                return Origin;
-            }
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float center = Scale.X / 2;
+            float y = Scale.Y / 2;
 
-            float normalisedX = NormaliseInput(x);
-            float y = 0.5f;
-
-            if (x < 0.5)
+            if (x < center)
             {
-                y = 2 * Pow(normalisedX, 2);
+                y = 2 * Scale.Y * Pow(normalisedX, 2);
             }
-            else if (x > 0.5)
+            else if (x > center)
             {
-                y = 1 - 2 * Pow(normalisedX - 1, 2);
+                y = Scale.Y - 2 * Scale.Y * Pow(normalisedX - 1, 2);
             }
 
-            y = DenormaliseOutput(y);
-
-            return new Point(x, y);
+            
+            return OutputInRange(x, y);
         }
 
-        public override Point InInverse(float y)
+        public override float InInverse(float y)
         {
-            if (y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (y < Origin.Y)
-            {
-                return Origin;
-            }
-
-            float normalisedY = NormaliseInput(y);
-            float x = Sqrt(normalisedY);
-            x = DenormaliseOutput(x);
-
-            return new Point(x, y);
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * Sqrt(normalisedY);
+            
+            return InverseOutputInRange(x, y);
         }
 
-        public override Point OutInverse(float y)
+        public override float OutInverse(float y)
         {
-            if (y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (y < Origin.Y)
-            {
-                return Origin;
-            }
-
-            float normalisedY = NormaliseInput(y);
-            float x = 1 - Sqrt(1 - normalisedY);
-            x = DenormaliseOutput(x);
-
-            return new Point(x, y);
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X - Scale.X * Sqrt(1 - normalisedY);
+            
+            return InverseOutputInRange(x, y);
         }
 
-        public override Point InOutInverse(float y)
+        public override float InOutInverse(float y)
         {
-            if (y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (y < Origin.Y)
-            {
-                return Origin;
-            }
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float center = Scale.Y / 2;
+            float x = Scale.X / 2;
 
-            float normalisedY = NormaliseInput(y);
-            float x = 0.5f;
-
-            if (y < 0.5)
+            if (y < center)
             {
-                x = Sqrt(normalisedY / 2);
+                x = Scale.X * Sqrt(normalisedY / 2);
             }
-            else if (y > 0.5)
+            else if (y > center)
             {
-                x = 1 - Sqrt(-(normalisedY - 1) / 2);
+                x = Scale.X - Scale.X * Sqrt((1 - normalisedY) / 2);
             }
 
-            x = DenormaliseOutput(x);
-
-            return new Point(x, y);
+            
+            return InverseOutputInRange(x, y);
         }
     }
 }

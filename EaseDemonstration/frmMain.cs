@@ -12,8 +12,8 @@
 
         // X will map the length of Time
         // Y will map our distance to travel.
-        private Point origin;
-        private Point destination;
+        private Vector origin;
+        private Vector destination;
 
         public frmMain()
         {
@@ -22,15 +22,15 @@
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            origin = new Point(0, 5);
-            destination = new Point((float)numDuration.Value / timer.Interval, 821);
+            origin = new Vector(0, 5);
+            destination = new Vector((float)numDuration.Value / timer.Interval, 821);
 
             comboEaseSelection.SelectedIndex = 0;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (ticks >= ease.Destination.X)
+            if (ticks >= ease.Scale.X)
             {
                 timer.Stop();
             }
@@ -61,23 +61,23 @@
 
         private void MoveEaseInLabel()
         {
-            int newDistance = (int)ease.In(ticks).Y;
+            //int newDistance = (int)ease.In(ticks).Y;
 
-            inLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
+            //inLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
         }
 
         private void MoveEaseOutLabel()
         {
-            int newDistance = (int)ease.Out(ticks).Y;
+            //int newDistance = (int)ease.Out(ticks).Y;
 
-            outLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
+            //outLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
         }
 
         private void MoveEaseInOutLabel()
         {
-            int newDistance = (int)ease.InOut(ticks).Y;
+            //int newDistance = (int)ease.InOut(ticks).Y;
 
-            inOutLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
+            //inOutLabel.Location = new System.Drawing.Point(newDistance, inLabel.Location.Y);
         }
 
         private void BtnPerformAll_Click(object sender, EventArgs e)
@@ -111,45 +111,45 @@
 
         private void ComboEaseSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            origin = new Point(0, 5);
-            destination = new Point((float)numDuration.Value / timer.Interval, 821);
+            origin = new Vector(0, 5);
+            destination = new Vector((float)numDuration.Value / timer.Interval, 821);
 
-            switch (comboEaseSelection.SelectedText)
-            {
-                case "Linear":
-                    ease = new Linear(origin, destination);
-                    break;
+            //switch (comboEaseSelection.SelectedText)
+            //{
+            //    case "Linear":
+            //        ease = new Linear(origin, destination);
+            //        break;
 
-                case "Sine":
-                    ease = new Sine(origin, destination);
-                    break;
+            //    case "Sine":
+            //        ease = new Sine(origin, destination);
+            //        break;
 
-                case "Quadratic":
-                    ease = new Quadratic(origin, destination);
-                    break;
+            //    case "Quadratic":
+            //        ease = new Quadratic(origin, destination);
+            //        break;
 
-                case "Cubic":
-                    ease = new Cubic(origin, destination);
-                    break;
+            //    case "Cubic":
+            //        ease = new Cubic(origin, destination);
+            //        break;
 
-                case "Quartic":
-                    ease = new Quartic(origin, destination);
-                    break;
+            //    case "Quartic":
+            //        ease = new Quartic(origin, destination);
+            //        break;
 
-                case "Quintic":
-                    ease = new Quintic(origin, destination);
-                    break;
+            //    case "Quintic":
+            //        ease = new Quintic(origin, destination);
+            //        break;
 
-                default:
-                    ease = new Linear(origin, destination);
-                    break;
-            }
+            //    default:
+            //        ease = new Linear(origin, destination);
+            //        break;
+            //}
         }
 
         private void NumDuration_ValueChanged(object sender, EventArgs e)
         {
-            origin = new Point(0, 5);
-            destination = new Point((float)numDuration.Value / timer.Interval, 821);
+            origin = new Vector(0, 5);
+            destination = new Vector((float)numDuration.Value / timer.Interval, 821);
         }
 
         private void ResetAndStartTimer()

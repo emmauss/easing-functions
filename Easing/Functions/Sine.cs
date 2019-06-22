@@ -27,114 +27,57 @@ namespace Easing
     {
         public Sine() : base() { }
 
-        public Sine(Point origin, Point destination) : base(origin, destination) { }
+        public Sine(Vector scale) : base(scale) { }
 
-        public override Point In(float x)
+        public override float In(float x)
         {
-            if (x > Destination.X)
-            {
-                return Destination;
-            }
-            else if (x < Origin.X)
-            {
-                return Origin;
-            }
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y + Scale.Y * Sin((PI / 2) * normalisedX - (PI / 2));
 
-            float normalisedX = NormaliseInput(x);
-            float y = 1 + Sin((PI / 2) * normalisedX - (PI / 2));
-            y = DenormaliseOutput(y);
-
-            return new Point(x, y);
+            return OutputInRange(x, y);
         }
 
-        public override Point Out(float x)
+        public override float Out(float x)
         {
-            if (x > Destination.X)
-            {
-                return Destination;
-            }
-            else if (x < Origin.X)
-            {
-                return Origin;
-            }
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * Sin((PI / 2) * normalisedX);
 
-            float normalisedX = NormaliseInput(x);
-            float y = Sin((PI / 2) * normalisedX);
-            y = DenormaliseOutput(y);
-
-            return new Point(x, y);
+            return OutputInRange(x, y);
         }
 
-        public override Point InOut(float x)
+        public override float InOut(float x)
         {
-            if (x > Destination.X)
-            {
-                return Destination;
-            }
-            else if (x < Origin.X)
-            {
-                return Origin;
-            }
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float center = Scale.Y / 2;
+            float y = Scale.Y / 2 + center * Sin((PI * normalisedX) - (PI / 2));
 
-            float normalisedX = NormaliseInput(x);
-            float y = 0.5f + 0.5f * Sin((PI * normalisedX) - (PI / 2));
-            y = DenormaliseOutput(y);
-
-            return new Point(x, y);
+            return OutputInRange(x, y);
         }
 
-        public override Point InInverse(float y)
+
+        public override float InInverse(float y)
         {
-            if (y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (y < Origin.Y)
-            {
-                return Origin;
-            }
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X + Scale.X * ((2 * Asin(normalisedY - 1)) / PI);
 
-            float normalisedY = NormaliseInput(y);
-            float x = (2 * Asin(normalisedY - 1) + PI) / PI;
-            x = DenormaliseOutput(x);
-
-            return new Point(x, y);
+            return InverseOutputInRange(x, y);
         }
 
-        public override Point OutInverse(float y)
+        public override float OutInverse(float y)
         {
-            if (y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (y < Origin.Y)
-            {
-                return Origin;
-            }
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * (2 * Asin(normalisedY)) / PI;
 
-            float normalisedY = NormaliseInput(y);
-            float x = (2 * Asin(normalisedY)) / PI;
-            x = DenormaliseOutput(x);
-
-            return new Point(x, y);
+            return InverseOutputInRange(x, y);
         }
 
-        public override Point InOutInverse(float y)
+        public override float InOutInverse(float y)
         {
-            if (y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (y < Origin.Y)
-            {
-                return Origin;
-            }
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float center = Scale.Y / 2;
+            float x = Scale.X / 2 + Scale.X * (Asin((2 * normalisedY) - 1)) / PI;
 
-            float normalisedY = NormaliseInput(y);
-            float x = (2 * Asin((2 * normalisedY) - 1) + PI) / (2 * PI);
-            x = DenormaliseOutput(x);
-
-            return new Point(x, y);
+            return InverseOutputInRange(x, y);
         }
     }
 }
