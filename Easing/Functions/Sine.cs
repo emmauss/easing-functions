@@ -25,58 +25,59 @@ namespace Easing
 {
     public class Sine : Ease
     {
-        public override Point In(float x)
-        {
-            x = ScaleX(x);
-            float y = 1 + Sin((PI / 2) * x - (PI / 2));
-            y = ScaleY(y);
+        public Sine() : base() { }
 
-            return new Point(x, y);
+        public Sine(Vector scale) : base(scale) { }
+
+        public override float In(float x)
+        {
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y + Scale.Y * Sin((PI / 2) * normalisedX - (PI / 2));
+
+            return OutputInRange(x, y);
         }
 
-        public override Point Out(float x)
+        public override float Out(float x)
         {
-            x = ScaleX(x);
-            float y = Sin((PI / 2) * x);
-            y = ScaleY(y);
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * Sin((PI / 2) * normalisedX);
 
-            return new Point(x, y);
+            return OutputInRange(x, y);
         }
 
-        public override Point InOut(float x)
+        public override float InOut(float x)
         {
-            x = ScaleX(x);
-            float y = 0.5f + 0.5f * Sin((PI * x) - (PI / 2));
-            y = ScaleY(y);
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float center = Scale.Y / 2;
+            float y = Scale.Y / 2 + center * Sin((PI * normalisedX) - (PI / 2));
 
-            return new Point(x, y);
+            return OutputInRange(x, y);
         }
 
-        public override Point InInverse(float y)
-        {
-            y = ScaleX(y);
-            float x = (2 * Asin(y - 1) + PI) / PI;
-            x = ScaleY(x);
 
-            return new Point(x, y);
+        public override float InInverse(float y)
+        {
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X + Scale.X * ((2 * Asin(normalisedY - 1)) / PI);
+
+            return InverseOutputInRange(x, y);
         }
 
-        public override Point OutInverse(float y)
+        public override float OutInverse(float y)
         {
-            y = ScaleX(y);
-            float x = (2 * Asin(y)) / PI;
-            x = ScaleY(x);
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * (2 * Asin(normalisedY)) / PI;
 
-            return new Point(x, y);
+            return InverseOutputInRange(x, y);
         }
 
-        public override Point InOutInverse(float y)
+        public override float InOutInverse(float y)
         {
-            y = ScaleX(y);
-            float x = (2 * Asin((2 * y) - 1) + PI) / (2 * PI);
-            x = ScaleY(x);
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float center = Scale.Y / 2;
+            float x = Scale.X / 2 + Scale.X * (Asin((2 * normalisedY) - 1)) / PI;
 
-            return new Point(x, y);
+            return InverseOutputInRange(x, y);
         }
     }
 }

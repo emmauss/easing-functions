@@ -57,7 +57,7 @@
     <Compile Include="Functions\EaseQuarticTest.cs" />
     <Compile Include="Functions\EaseQuinticTest.cs" />
     <Compile Include="Functions\EaseCircularTest.cs" />
-    <Compile Include="PointTest.cs" />
+    <Compile Include="VectorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

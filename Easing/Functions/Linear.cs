@@ -25,56 +25,56 @@ namespace Easing
 {
     public class Linear : Ease
     {
-        public override Point In(float x)
-        {
-            x = ScaleX(x);
-            float y = x;
-            y = ScaleY(y);
+        public Linear() : base() { }
 
-            return new Point(x, y);
+        public Linear(Vector scale) : base(scale) { }
+
+        public override float In(float x)
+        {
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * normalisedX;
+            
+            return OutputInRange(x, y);
         }
 
-        public override Point Out(float x)
+        public override float Out(float x)
         {
-            x = ScaleX(x);
-            float y = x;
-            y = ScaleY(y);
-
-            return new Point(x, y);
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * normalisedX;
+            
+            return OutputInRange(x, y);
         }
 
-        public override Point InOut(float x)
+        public override float InOut(float x)
         {
-            x = ScaleX(x);
-            float y = x;
-            y = ScaleY(y);
-
-            return new Point(x, y);
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * normalisedX;
+            
+            return OutputInRange(x, y);
         }
 
-        public override Point InInverse(float y)
+        public override float InInverse(float y)
         {
-            y = ScaleX(y);
-            float x = y;
-            return new Point(x, y);
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * normalisedY;
+            
+            return InverseOutputInRange(x, y);
         }
 
-        public override Point OutInverse(float y)
+        public override float OutInverse(float y)
         {
-            y = ScaleX(y);
-            float x = y;
-            x = ScaleY(x);
-
-            return new Point(x, y);
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * normalisedY;
+            
+            return InverseOutputInRange(x, y);
         }
 
-        public override Point InOutInverse(float y)
+        public override float InOutInverse(float y)
         {
-            y = ScaleX(y);
-            float x = y;
-            x = ScaleY(x);
-
-            return new Point(x, y);
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * normalisedY;
+            
+            return InverseOutputInRange(x, y);
         }
     }
 }

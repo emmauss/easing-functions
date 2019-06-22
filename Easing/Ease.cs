@@ -27,43 +27,55 @@ namespace Easing
 
     public abstract class Ease
     {
-        public Point Origin { get; set; }
-        public Point Destination { get; set; }
-
+        public Vector Scale { get; set; }
         protected const float PI = (float)Math.PI;
 
         public Ease()
         {
-            Origin = Point.Zero;
-            Destination = new Point(1, 1);
+            Scale = new Vector(1, 1);
         }
 
-        public Ease(Point origin, Point destination)
+        public Ease(Vector scale)
         {
-            Origin = origin;
-            Destination = destination;
+            Scale = scale;
         }
 
-        public abstract Point In(float x);
-
-        public abstract Point Out(float x);
-
-        public abstract Point InOut(float x);
-
-        public abstract Point InInverse(float y);
-
-        public abstract Point OutInverse(float y);
-
-        public abstract Point InOutInverse(float y);
-
-        protected float ScaleX(float x)
+        protected float NormaliseInput(float input, float scale)
         {
-            return x / (Destination.Y - Origin.Y);
+            input /= scale;
+            return input;
         }
 
-        protected float ScaleY(float y)
+        protected float OutputInRange(float x, float y)
         {
-            return y * (Destination.X - Origin.X);
+            if (x > Scale.X)
+            {
+                return Scale.Y;
+            }
+            else if (x < 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return y;
+            }
+        }
+
+        protected float InverseOutputInRange(float x, float y)
+        {
+            if (y > Scale.Y)
+            {
+                return Scale.X;
+            }
+            else if (y < 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return x;
+            }
         }
 
         protected static float Sin(float value)
@@ -83,7 +95,24 @@ namespace Easing
 
         protected static float Pow(float value, float exponent)
         {
-            return (float)Math.Pow(Math.Abs(value), exponent);
+            return (float)Math.Pow(value, exponent);
         }
+
+        protected static float Abs(float value)
+        {
+            return Math.Abs(value);
+        }
+
+        public abstract float In(float x);
+
+        public abstract float Out(float x);
+
+        public abstract float InOut(float x);
+
+        public abstract float InInverse(float y);
+
+        public abstract float OutInverse(float y);
+
+        public abstract float InOutInverse(float y);
     }
 }

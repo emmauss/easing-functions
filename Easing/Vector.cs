@@ -24,56 +24,75 @@ SOFTWARE.
 namespace Easing
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+    using System.Drawing;
 
-
-    public struct Point : IEquatable<Point>
+    public struct Vector : IEquatable<Vector>
     {
-        public static Point Zero { get => new Point(0, 0); }
-
+        public static Vector Zero { get => new Vector(0, 0); }
         public float X { get; set; }
         public float Y { get; set; }
-        
-        public Point(float x, float y)
+
+        public Vector(float x, float y)
         {
             X = x;
             Y = y;
         }
 
-        public static Point operator -(Point lhs, Point rhs)
+        public static Vector operator -(Vector lhs, Vector rhs)
         {
             float newX = lhs.X - rhs.X;
             float newY = lhs.Y - rhs.Y;
-            return new Point(newX, newY);
+            return new Vector(newX, newY);
         }
 
-        public static Point operator +(Point lhs, Point rhs)
+        public static Vector operator +(Vector lhs, Vector rhs)
         {
             float newX = lhs.X + rhs.X;
             float newY = lhs.Y + rhs.Y;
-            return new Point(newX, newY);
+            return new Vector(newX, newY);
         }
 
-        public static bool operator ==(Point lhs, Point rhs)
+        public static Vector operator *(Vector lhs, float rhs)
+        {
+            float newX = lhs.X * rhs;
+            float newY = lhs.Y * rhs;
+            return new Vector(newX, newY);
+        }
+
+        public static Vector operator /(Vector lhs, float rhs)
+        {
+            float newX = lhs.X / rhs;
+            float newY = lhs.Y / rhs;
+            return new Vector(newX, newY);
+        }
+
+        public static bool operator ==(Vector lhs, Vector rhs)
         {
             return lhs.Equals(rhs);
         }
 
-        public static bool operator !=(Point lhs, Point rhs)
+        public static bool operator !=(Vector lhs, Vector rhs)
         {
             return !(lhs == rhs);
+        }
+
+        public static implicit operator Vector(System.Drawing.Point rhs)
+        {
+            return new Vector(rhs.X, rhs.Y);
+        }
+
+        public static implicit operator System.Drawing.Point(Vector rhs)
+        {
+            return new Vector(rhs.X, rhs.Y);
         }
 
         public override bool Equals(object obj)
         {
             if (GetType() != obj.GetType()) return false;
-            return Equals((Point)obj);
+            return Equals((Vector)obj);
         }
 
-        public bool Equals(Point point)
+        public bool Equals(Vector point)
         {
             if (ReferenceEquals(this, point)) return true;
             return (X == point.X) && (Y == point.Y);
@@ -87,8 +106,8 @@ namespace Easing
                 const int HashingMultiplier = 16777619;
 
                 int hash = HashingBase;
-                hash = (hash * HashingMultiplier) ^ (int)X;
-                hash = (hash * HashingMultiplier) ^ (int)Y;
+                hash = (hash * HashingMultiplier) ^ (int)(X * 1000);
+                hash = (hash * HashingMultiplier) ^ (int)(Y * 1000);
                 return hash;
             }
         }
