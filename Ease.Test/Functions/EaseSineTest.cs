@@ -31,28 +31,26 @@
         }
 
         [TestMethod]
-        public void In_OffsetOriginAndDestinationInputInRange_ReturnsExpectedValue()
+        public void In_ChangedScaleInputInRange_ReturnsExpectedValue()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float x = 3.6f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float x = 2.5f;
 
-            float expected = 3.4122f;
+            float expected = 2.667f;
             float actual = ease.In(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InInverse_OffsetOriginAndDestinationInputInRange_ReturnsExpectedValue()
+        public void InInverse_ChangedScaleInputInRange_ReturnsExpectedValue()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float y = 3.6f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float y = 2.5f;
 
-            float expected = 3.738f;
+            float expected = 2.414f;
             float actual = ease.InInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -64,7 +62,7 @@
             Ease ease = new Sine();
             float x = -0.5f;
 
-            float expected = ease.Origin.X;
+            float expected = 0;
             float actual = ease.In(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -76,35 +74,33 @@
             Ease ease = new Sine();
             float y = -0.6f;
 
-            float expected = ease.Origin.Y;
+            float expected = 0;
             float actual = ease.InInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void In_OffsetOriginAndDestinationInputBelowRange_ReturnsOrigin()
+        public void In_ChangedScaleInputBelowRange_ReturnsOrigin()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float x = 1.1f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float x = -1;
 
-            float expected = ease.Origin.X;
+            float expected = 0;
             float actual = ease.In(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InInverse_OffsetOriginAndDestinationInputBelowRange_ReturnsOrigin()
+        public void InInverse_ChangedScaleInputBelowRange_ReturnsOrigin()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float y = 1.1f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float y = -1;
 
-            float expected = ease.Origin.Y;
+            float expected = 0;
             float actual = ease.InInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -116,7 +112,7 @@
             Ease ease = new Sine();
             float x = 1.5f;
 
-            float expected = ease.Destination.X;
+            float expected = ease.Scale.Y;
             float actual = ease.In(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -128,35 +124,33 @@
             Ease ease = new Sine();
             float y = 1.6f;
 
-            float expected = ease.Destination.Y;
+            float expected = ease.Scale.X;
             float actual = ease.InInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void In_OffsetOriginAndDestinationInputAboveRange_ReturnsDestination()
+        public void In_ChangedScaleInputAboveRange_ReturnsDestination()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
             float x = 11.1f;
 
-            float expected = ease.Destination.X;
+            float expected = ease.Scale.Y;
             float actual = ease.In(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InInverse_OffsetOriginAndDestinationInputAboveRange_ReturnsDestination()
+        public void InInverse_ChangedScaleInputAboveRange_ReturnsDestination()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
             float y = 6.1f;
 
-            float expected = ease.Destination.Y;
+            float expected = ease.Scale.X;
             float actual = ease.InInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -190,28 +184,26 @@
         }
 
         [TestMethod]
-        public void Out_OffsetOriginAndDestinationInputInRange_ReturnsExpectedValue()
+        public void Out_ChangedScaleInputInRange_ReturnsExpectedValue()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float x = 3.6f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float x = 2.5f;
 
-            float expected = 3.809f;
+            float expected = 4.989f;
             float actual = ease.Out(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void OutInverse_OffsetOriginAndDestinationInputInRange_ReturnsExpectedValue()
+        public void OutInverse_ChangedScaleInputInRange_ReturnsExpectedValue()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float y = 3.6f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float y = 2.5f;
 
-            float expected = 3.4097f;
+            float expected = 1.094f;
             float actual = ease.OutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -223,7 +215,7 @@
             Ease ease = new Sine();
             float x = -0.5f;
 
-            float expected = ease.Origin.X;
+            float expected = 0;
             float actual = ease.Out(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -235,35 +227,33 @@
             Ease ease = new Sine();
             float y = -0.6f;
 
-            float expected = ease.Origin.Y;
+            float expected = 0;
             float actual = ease.OutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void Out_OffsetOriginAndDestinationInputBelowRange_ReturnsOrigin()
+        public void Out_ChangedScaleInputBelowRange_ReturnsOrigin()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float x = 1.1f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float x = -1.1f;
 
-            float expected = ease.Origin.X;
+            float expected = 0;
             float actual = ease.Out(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void OutInverse_OffsetOriginAndDestinationInputBelowRange_ReturnsOrigin()
+        public void OutInverse_ChangedScaleInputBelowRange_ReturnsOrigin()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float y = 1.1f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float y = -1.1f;
 
-            float expected = ease.Origin.Y;
+            float expected = 0;
             float actual = ease.OutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -275,7 +265,7 @@
             Ease ease = new Sine();
             float x = 1.5f;
 
-            float expected = ease.Destination.X;
+            float expected = ease.Scale.Y;
             float actual = ease.Out(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -287,35 +277,33 @@
             Ease ease = new Sine();
             float y = 1.6f;
 
-            float expected = ease.Destination.Y;
+            float expected = ease.Scale.X;
             float actual = ease.OutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void Out_OffsetOriginAndDestinationInputAboveRange_ReturnsDestination()
+        public void Out_ChangedScaleInputAboveRange_ReturnsDestination()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
             float x = 11.1f;
 
-            float expected = ease.Destination.X;
+            float expected = ease.Scale.Y;
             float actual = ease.Out(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void OutInverse_OffsetOriginAndDestinationInputAboveRange_ReturnsDestination()
+        public void OutInverse_ChangedScaleInputAboveRange_ReturnsDestination()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
             float y = 6.1f;
 
-            float expected = ease.Destination.Y;
+            float expected = ease.Scale.X;
             float actual = ease.OutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -349,29 +337,27 @@
         }
 
         [TestMethod]
-        public void InOut_OffsetOriginAndDestinationInputInRange_ReturnsExpectedValue()
+        public void InOut_ChangedScaleInputInRange_ReturnsExpectedValue()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float x = 3.6f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float x = 2.5f;
 
-            float expected = 3.809f;
-            float actual = ease.Out(x);
+            float expected = 4.148f;
+            float actual = ease.InOut(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InOutInverse_OffsetOriginAndDestinationInputInRange_ReturnsExpectedValue()
+        public void InOutInverse_ChangedScaleInputInRange_ReturnsExpectedValue()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float y = 3.6f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float y = 2.5f;
 
-            float expected = 3.4097f;
-            float actual = ease.OutInverse(y);
+            float expected = 1.787f;
+            float actual = ease.InOutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
@@ -382,7 +368,7 @@
             Ease ease = new Sine();
             float x = -0.5f;
 
-            float expected = ease.Origin.X;
+            float expected = 0;
             float actual = ease.InOut(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -394,35 +380,33 @@
             Ease ease = new Sine();
             float y = -0.6f;
 
-            float expected = ease.Origin.Y;
+            float expected = 0;
             float actual = ease.InOutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InOut_OffsetOriginAndDestinationInputBelowRange_ReturnsOrigin()
+        public void InOut_ChangedScaleInputBelowRange_ReturnsOrigin()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float x = 1.1f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float x = -1.1f;
 
-            float expected = ease.Origin.X;
+            float expected = 0;
             float actual = ease.InOut(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InOutInverse_OffsetOriginAndDestinationInputBelowRange_ReturnsOrigin()
+        public void InOutInverse_ChangedScaleInputBelowRange_ReturnsOrigin()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
-            float y = 1.1f;
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
+            float y = -1.1f;
 
-            float expected = ease.Origin.Y;
+            float expected = 0;
             float actual = ease.InOutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -434,7 +418,7 @@
             Ease ease = new Sine();
             float x = 1.5f;
 
-            float expected = ease.Destination.X;
+            float expected = ease.Scale.Y;
             float actual = ease.InOut(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
@@ -446,35 +430,33 @@
             Ease ease = new Sine();
             float y = 1.6f;
 
-            float expected = ease.Destination.Y;
+            float expected = ease.Scale.X;
             float actual = ease.InOutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InOut_OffsetOriginAndDestinationInputAboveRange_ReturnsDestination()
+        public void InOut_ChangedScaleInputAboveRange_ReturnsDestination()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
             float x = 11.1f;
 
-            float expected = ease.Destination.X;
+            float expected = ease.Scale.Y;
             float actual = ease.InOut(x);
 
             Assert.AreEqual(expected, actual, 0.001f);
         }
 
         [TestMethod]
-        public void InOutInverse_OffsetOriginAndDestinationInputAboveRange_ReturnsDestination()
+        public void InOutInverse_ChangedScaleInputAboveRange_ReturnsDestination()
         {
-            Point origin = new Point(3, 3);
-            Point destination = new Point(4, 4);
-            Ease ease = new Sine(origin, destination);
+            Vector scale = new Vector(4, 6);
+            Ease ease = new Sine(scale);
             float y = 6.1f;
 
-            float expected = ease.Destination.Y;
+            float expected = ease.Scale.X;
             float actual = ease.InOutInverse(y);
 
             Assert.AreEqual(expected, actual, 0.001f);

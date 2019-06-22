@@ -27,134 +27,76 @@ namespace Easing
     {
         public Cubic() : base() { }
 
-        public Cubic(Point origin, Point destination) : base(origin, destination) { }
+        public Cubic(Vector scale) : base(scale) { }
 
         public override float In(float x)
         {
-            if (x > Destination.X)
-            {
-                return ValueWhenAboveRange();
-            }
-            else if (x < Origin.X)
-            {
-                return ValueWhenUnderRange();
-            }
-
-            float normalisedX = NormaliseInput(x);
-            float y = Pow(normalisedX, 3);
-            y = DenormaliseOutput(y);
-
-			return y;
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * Pow(normalisedX, 3);
+            
+            return OutputInRange(x, y);
         }
 
         public override float Out(float x)
         {
-            if (x > Destination.X)
-            {
-                return ValueWhenAboveRange();
-            }
-            else if (x < Origin.X)
-            {
-                return ValueWhenUnderRange();
-            }
-
-            float normalisedX = NormaliseInput(x);
-            float y = 1 + Pow(normalisedX - 1, 3);
-            y = DenormaliseOutput(y);
-
-			return y;
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y + Scale.Y * Pow(normalisedX - 1, 3);
+            
+            return OutputInRange(x, y);
         }
 
         public override float InOut(float x)
         {
-            if (x > Destination.X)
-            {
-                return ValueWhenAboveRange();
-            }
-            else if (x < Origin.X)
-            {
-                return ValueWhenUnderRange();
-            }
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float center = Scale.X / 2;
+            float y = Scale.Y / 2;
 
-            float normalisedX = NormaliseInput(x);
-            float y = 0.5f;
-
-            if (x < 0.5)
+            if (x < center)
             {
-                y = 4 * Pow(normalisedX, 3);
+                y = 4 * Scale.Y * Pow(normalisedX, 3);
             }
-            else if (x > 0.5)
+            else if (x > center)
             {
-                y = 1 + 4 * Pow(normalisedX - 1, 3);
+                y = Scale.Y + 4 * Scale.Y * Pow(normalisedX - 1, 3);
             }
 
-            y = DenormaliseOutput(y);
-
-			return y;
+            
+            return OutputInRange(x, y);
         }
 
         public override float InInverse(float y)
         {
-            if (y > Destination.Y)
-			{
-				return InverseValueWhenAboveRange();
-			}
-			else if (y < Origin.Y)
-			{
-				return InverseValueWhenUnderRange();
-			}
-
-            float normalisedY = NormaliseInput(y);
-            float x = Pow(normalisedY, 1.0f / 3.0f);
-            x = DenormaliseOutput(x);
-
-			return x;
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * Pow(normalisedY, 1.0f / 3.0f);
+            
+            return InverseOutputInRange(x, y);
         }
 
         public override float OutInverse(float y)
         {
-            if (y > Destination.Y)
-			{
-				return InverseValueWhenAboveRange();
-			}
-			else if (y < Origin.Y)
-			{
-				return InverseValueWhenUnderRange();
-			}
-
-            float normalisedY = NormaliseInput(y);
-            float x = 1 - Pow(1 - normalisedY, 1.0f / 3.0f);
-            x = DenormaliseOutput(x);
-
-			return x;
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X - Scale.X * Pow(1 - normalisedY, 1.0f / 3.0f);
+            
+            return InverseOutputInRange(x, y);
         }
 
         public override float InOutInverse(float y)
         {
-            if (y > Destination.Y)
-			{
-				return InverseValueWhenAboveRange();
-			}
-			else if (y < Origin.Y)
-			{
-				return InverseValueWhenUnderRange();
-			}
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float center = Scale.Y / 2;
+            float x = Scale.X / 2;
 
-            float normalisedY = NormaliseInput(y);
-            float x = 0.5f;
-
-            if (y < 0.5)
+            if (y < center)
             {
-                x = Pow(normalisedY / 4, 1.0f / 3.0f);
+                x = Scale.X * Pow(normalisedY / 4, 1.0f / 3.0f);
             }
-            else if (y > 0.5)
+            else if (y > center)
             {
-                x = 1 - Pow((1 - normalisedY) / 4.0f, 1.0f / 3.0f);
+                x = Scale.X - Scale.X * Pow((1 - normalisedY) / 4.0f, 1.0f / 3.0f);
             }
 
-            x = DenormaliseOutput(x);
-
-			return x;
+            
+            return InverseOutputInRange(x, y);
         }
     }
 }

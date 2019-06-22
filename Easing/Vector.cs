@@ -26,17 +26,11 @@ namespace Easing
     using System;
     using System.Drawing;
 
-    public struct Vector : IEquatable<Point>
+    public struct Vector : IEquatable<Vector>
     {
         public static Vector Zero { get => new Vector(0, 0); }
         public float X { get; set; }
         public float Y { get; set; }
-
-        public Vector(Vector vector)
-        {
-            X = vector.X;
-            Y = vector.Y;
-        }
 
         public Vector(float x, float y)
         {
@@ -55,6 +49,20 @@ namespace Easing
         {
             float newX = lhs.X + rhs.X;
             float newY = lhs.Y + rhs.Y;
+            return new Vector(newX, newY);
+        }
+
+        public static Vector operator *(Vector lhs, float rhs)
+        {
+            float newX = lhs.X * rhs;
+            float newY = lhs.Y * rhs;
+            return new Vector(newX, newY);
+        }
+
+        public static Vector operator /(Vector lhs, float rhs)
+        {
+            float newX = lhs.X / rhs;
+            float newY = lhs.Y / rhs;
             return new Vector(newX, newY);
         }
 
@@ -81,10 +89,10 @@ namespace Easing
         public override bool Equals(object obj)
         {
             if (GetType() != obj.GetType()) return false;
-            return Equals((Point)obj);
+            return Equals((Vector)obj);
         }
 
-        public bool Equals(Point point)
+        public bool Equals(Vector point)
         {
             if (ReferenceEquals(this, point)) return true;
             return (X == point.X) && (Y == point.Y);

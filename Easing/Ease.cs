@@ -27,72 +27,55 @@ namespace Easing
 
     public abstract class Ease
     {
-        public Point Origin { get; set; }
-        public Point Destination { get; set; }
+        public Vector Scale { get; set; }
         protected const float PI = (float)Math.PI;
 
         public Ease()
         {
-            Origin = Point.Zero;
-            Destination = new Point(1, 1);
+            Scale = new Vector(1, 1);
         }
 
-        public Ease(Point origin, Point destination)
+        public Ease(Vector scale)
         {
-            Origin = origin;
-            Destination = destination;
+            Scale = scale;
         }
 
-        protected Point SetPointWithinRange(Point point)
+        protected float NormaliseInput(float input, float scale)
         {
-            if (point.X < Origin.X || point.Y < Origin.Y)
-            {
-                return Origin;
-            }
-            else if (point.X > Destination.X || point.Y > Destination.Y)
-            {
-                return Destination;
-            }
-            else if (float.IsNaN(point.X) || float.IsNaN(point.Y))
-            {
-                return Destination;
-            }
-
-            return point;
-        }
-
-        protected float NormaliseInput(float input)
-        {
-            input -= Origin.X;
-            input /= Destination.X - Origin.X;
+            input /= scale;
             return input;
         }
 
-        protected float DenormaliseOutput(float output)
+        protected float OutputInRange(float x, float y)
         {
-            output *= Destination.Y - Origin.Y;
-            output += Origin.Y;
-            return output;
+            if (x > Scale.X)
+            {
+                return Scale.Y;
+            }
+            else if (x < 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return y;
+            }
         }
 
-        protected float ValueWhenAboveRange()
+        protected float InverseOutputInRange(float x, float y)
         {
-            return Destination.Y;
-        }
-
-        protected float ValueWhenUnderRange()
-        {
-            return Origin.Y;
-        }
-
-        protected float InverseValueWhenAboveRange()
-        {
-            return Destination.X;
-        }
-
-        protected float InverseValueWhenUnderRange()
-        {
-            return Origin.X;
+            if (y > Scale.Y)
+            {
+                return Scale.X;
+            }
+            else if (y < 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return x;
+            }
         }
 
         protected static float Sin(float value)

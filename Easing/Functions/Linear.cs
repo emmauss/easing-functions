@@ -27,114 +27,54 @@ namespace Easing
     {
         public Linear() : base() { }
 
-        public Linear(Point origin, Point destination) : base(origin, destination) { }
+        public Linear(Vector scale) : base(scale) { }
 
         public override float In(float x)
         {
-            if (x > Destination.X)
-            {
-                return ValueWhenAboveRange();
-            }
-            else if (x < Origin.X)
-            {
-                return ValueWhenUnderRange();
-            }
-
-            float normalisedX = NormaliseInput(x);
-            float y = normalisedX;
-            y = DenormaliseOutput(y);
-
-			return y;
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * normalisedX;
+            
+            return OutputInRange(x, y);
         }
 
         public override float Out(float x)
         {
-            if (x > Destination.X)
-            {
-                return ValueWhenAboveRange();
-            }
-            else if (x < Origin.X)
-            {
-                return ValueWhenUnderRange();
-            }
-
-            float normalisedX = NormaliseInput(x);
-            float y = normalisedX;
-            y = DenormaliseOutput(y);
-
-			return y;
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * normalisedX;
+            
+            return OutputInRange(x, y);
         }
 
         public override float InOut(float x)
         {
-            if (x > Destination.X)
-            {
-                return ValueWhenAboveRange();
-            }
-            else if (x < Origin.X)
-            {
-                return ValueWhenUnderRange();
-            }
-
-            float normalisedX = NormaliseInput(x);
-            float y = normalisedX;
-            y = DenormaliseOutput(y);
-
-			return y;
+            float normalisedX = NormaliseInput(x, Scale.X);
+            float y = Scale.Y * normalisedX;
+            
+            return OutputInRange(x, y);
         }
 
         public override float InInverse(float y)
         {
-            if (y > Destination.Y)
-			{
-				return InverseValueWhenAboveRange();
-			}
-			else if (y < Origin.Y)
-			{
-				return InverseValueWhenUnderRange();
-			}
-
-            float normalisedY = NormaliseInput(y);
-            float x = normalisedY;
-            x = DenormaliseOutput(x);
-
-			return x;
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * normalisedY;
+            
+            return InverseOutputInRange(x, y);
         }
 
         public override float OutInverse(float y)
         {
-            if (y > Destination.Y)
-			{
-				return InverseValueWhenAboveRange();
-			}
-			else if (y < Origin.Y)
-			{
-				return InverseValueWhenUnderRange();
-			}
-
-            float normalisedY = NormaliseInput(y);
-            float x = normalisedY;
-            x = DenormaliseOutput(x);
-
-			return x;
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * normalisedY;
+            
+            return InverseOutputInRange(x, y);
         }
 
         public override float InOutInverse(float y)
         {
-            if (y > Destination.Y)
-			{
-				return InverseValueWhenAboveRange();
-			}
-			else if (y < Origin.Y)
-			{
-				return InverseValueWhenUnderRange();
-			}
-
-            float normalisedY = NormaliseInput(y);
-            float x = normalisedY;
-            x = DenormaliseOutput(x);
-
-			return x;
+            float normalisedY = NormaliseInput(y, Scale.Y);
+            float x = Scale.X * normalisedY;
+            
+            return InverseOutputInRange(x, y);
         }
     }
 }
