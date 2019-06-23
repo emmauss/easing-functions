@@ -11,7 +11,7 @@ There are also 3 secondary functions, **In Inverse**, **Out Inverse**, **In-Out 
 
 ![Main function format](/readme-images/inverse-function.png)
 
-###### Ease functions signatures
+##### Ease functions signatures
 ```C#
 // Finds y using input x.
 public abstract float In(float x);
@@ -24,7 +24,7 @@ public abstract float OutInverse(float y);
 public abstract float InOutInverse(float y);
 ```
 
-###### Demonstration of using ease functions
+##### Demonstration of using ease functions
 ```C#
 Ease ease = new Cubic();
 
@@ -35,7 +35,7 @@ float inInverseValue = ease.InInverse(0.125f); // returns 0.5f
 float outInverseValue = ease.OutInverse(0.794f); // returns 0.5f
 ```
 
-##### Ease Scale property
+##### Scale property
 In the `Ease` class there is a `Vector Scale { get; set; }` property.
 
 This property can be used to scale the function's input and output values, by default (in the default constructor) the scale will be `new Vector(1, 1)`. The default scale is `(1, 1)` because you don't have to scale the function *ever* if you don't want to, because when you're easing from one value to another, you can always just use output values of the ease as multipliers on all the values from the start to finish value.
