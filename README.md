@@ -3,7 +3,7 @@ This is group of easing functions in C#. Which can be used to transition a chang
 
 Here's an example of the *Quartic In-Out* ease function.
 
-![Quartic In-Out animation](/readme-images/gifs/quartic-inout.gif)
+![Quartic In-Out animation](/readme-images/function-gifs/quartic-inout.gif)
 
 ### How to use
 - View the [Easing folder README](/Easing) for a detailed description on this class library, this is also the project path that builds the `.dll` file.
