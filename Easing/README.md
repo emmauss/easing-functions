@@ -7,7 +7,7 @@ There are 3 main functions for each ease type, there is **In**, **Out**, **In-Ou
 
 ![Main function format](/readme-images/normal-function.png)
 
-There are also 3 secondary functions, **In Inverse**, **Out Inverse**, **In-Out Inverse**. These functions follow the `f(y) = x` format (you *can* use them for easing, but they're mainly there for utility, for example if you're easing the velocity of something, but only know it's velocity, you would use the inverse function of an ease to find its current `X` coordinate on an ease, and then use `X + Time.deltaTime` to find the next velocity).
+There are also 3 secondary functions, **In Inverse**, **Out Inverse**, **In-Out Inverse**. These functions follow the `f(y) = x` format (you *can* use them for easing, but they're mainly there for utility, for example if you're easing the velocity of something, but only know it's velocity, you would use the inverse function of an ease to find its current `X` value on an ease graph, and then use `X + Time.deltaTime` to find the next velocity).
 
 ![Main function format](/readme-images/inverse-function.png)
 
