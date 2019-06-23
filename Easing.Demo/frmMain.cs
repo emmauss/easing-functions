@@ -34,15 +34,15 @@
             time += timer.Interval;
 
             // Ease calculation.
-            int newDistance = (int)ease.InOut(time % duration);
+            int deltaDistance = (int)ease.InOut(time % duration);
 
             if (ShouldMoveRight())
             {
-                lblMovingLabel.Location = new Point(start.X + newDistance, lblMovingLabel.Location.Y);
+                lblMovingLabel.Location = new Point(start.X + deltaDistance, lblMovingLabel.Location.Y);
             }
             else if (ShouldMoveLeft())
             {
-                lblMovingLabel.Location = new Point(end.X - newDistance, lblMovingLabel.Location.Y);
+                lblMovingLabel.Location = new Point(end.X - deltaDistance, lblMovingLabel.Location.Y);
             }
         }
 

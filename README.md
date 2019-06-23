@@ -6,20 +6,18 @@ Here's an example of the *Quartic In-Out* ease function.
 ![Quartic In-Out animation](/ReadmeImages/gifs/quartic-inout.gif)
 
 ### How to use
-View the [Easing folder README](/Easing) for a detailed description for how to use this.
-
-You can also look at the [Easing tests](/Ease.Test/Functions) to see many cases where I used the ease classes and how I used them.
-
-Keep in mind, these easing classes follow mathematical functions, you can see the formulas for these functions in the 
-[EaseFormulas Excel document](/EaseFormulas.xlsx). You can also use this for inspiration if you want to make a new ease class.
+- View the [Easing folder README](/Easing) for a detailed description on this class library.
+- Seeing the code in the [Easing Demo project](/Easing.Demo) would be a great way to see a real world implementation of this class library.
+- You can also look at the [Easing tests](/Easing.Test/Functions) to see many cases where I used the ease classes and how I used them.
+- Keep in mind, these easing classes follow mathematical functions, you can see the formulas for these functions in the [EaseFormulas Excel document](/EaseFormulas.xlsx). You can also use this for inspiration if you want to make your own ease class.
 
 ### Current Easing functions
 | Ease Type | In | Out | In-Out |
 | --- | --- | --- | --- |
-| Linear | ![Linear](/ReadmeImages/images/linear.png) | ![Linear](/ReadmeImages/images/linear.png) | ![Linear](/ReadmeImages/images/linear.png) |
-| Sine | ![Sine In](/ReadmeImages/images/sine-in.png) | ![Sine Out](/ReadmeImages/images/sine-out.png) | ![Sine In-Out](/ReadmeImages/images/sine-inout.png) |
-| Quadratic | ![Quadratic In](/ReadmeImages/images/quadratic-in.png) | ![Quadratic Out](/ReadmeImages/images/quadratic-out.png) | ![Quadratic In-Out](/ReadmeImages/images/quadratic-inout.png) |
-| Cubic | ![Cubic In](/ReadmeImages/images/cubic-in.png) | ![Cubic Out](/ReadmeImages/images/cubic-out.png) | ![Cubic In-Out](/ReadmeImages/images/cubic-inout.png) |
-| Quartic | ![Quartic In](/ReadmeImages/images/quartic-in.png) | ![Quartic Out](/ReadmeImages/images/quartic-out.png) | ![Quartic In-Out](/ReadmeImages/images/quartic-inout.png) |
-| Quintic | ![Quintic In](/ReadmeImages/images/quintic-in.png) | ![Quintic Out](/ReadmeImages/images/quintic-out.png) | ![Quintic In-Out](/ReadmeImages/images/quintic-inout.png) |
-| Circular | ![Circular In](/ReadmeImages/images/circular-in.png) | ![Circular Out](/ReadmeImages/images/circular-out.png) | ![Circular In-Out](/ReadmeImages/images/circular-inout.png) |
+| Linear | ![Linear](/readme-images/function-images/linear.png) | ![Linear](/readme-images/function-images/linear.png) | ![Linear](/readme-images/function-images/linear.png) |
+| Sine | ![Sine In](/readme-images/function-images/sine-in.png) | ![Sine Out](/readme-images/function-images/sine-out.png) | ![Sine In-Out](/readme-images/function-images/sine-inout.png) |
+| Quadratic | ![Quadratic In](/readme-images/function-images/quadratic-in.png) | ![Quadratic Out](/readme-images/function-images/quadratic-out.png) | ![Quadratic In-Out](/readme-images/function-images/quadratic-inout.png) |
+| Cubic | ![Cubic In](/readme-images/function-images/cubic-in.png) | ![Cubic Out](/readme-images/function-images/cubic-out.png) | ![Cubic In-Out](/readme-images/function-images/cubic-inout.png) |
+| Quartic | ![Quartic In](/readme-images/function-images/quartic-in.png) | ![Quartic Out](/readme-images/function-images/quartic-out.png) | ![Quartic In-Out](/readme-images/function-images/quartic-inout.png) |
+| Quintic | ![Quintic In](/readme-images/function-images/quintic-in.png) | ![Quintic Out](/readme-images/function-images/quintic-out.png) | ![Quintic In-Out](/readme-images/function-images/quintic-inout.png) |
+| Circular | ![Circular In](/readme-images/function-images/circular-in.png) | ![Circular Out](/readme-images/function-images/circular-out.png) | ![Circular In-Out](/readme-images/function-images/circular-inout.png) |
