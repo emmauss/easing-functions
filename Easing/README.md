@@ -38,7 +38,7 @@ float outInverseValue = ease.OutInverse(0.794f); // returns 0.5f
 ##### Scale property
 In the `Ease` class there is a `public Vector Scale { get; set; }` property.
 
-This property can be used to scale the function's input and output values, by default (in the default constructor) the scale will be `Vector(1, 1)`. The default scale is `(1, 1)` because you don't have to scale the function *ever* if you don't want to, because when you're easing from one value to another, you can always just use output values of the ease as multipliers on all the values from the start to finish on the value you're easing.
+This property can be used to scale the function's input and output values, by default (in the default constructor) the scale will be `Vector(1, 1)`. The default scale is `(1, 1)` because you don't have to scale an ease function *ever*, if you don't want to, because when you're easing from one value to another, you can always just use output values of the ease as multipliers on all the values from the start to finish on the value you're easing.
 
 Scaling may make your code easier to understand though, it will depend on the situation. In the [Easing Demo project](/Easing.Demo) I scaled the graph so that `Scale.X` mapped time, and `Scale.Y` mapped position, this seems fitting and much easier to grasp instead of calculating the percentage of time that has gone by compared to the total duration, and doing something similar to position.
 
