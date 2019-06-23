@@ -1,6 +1,7 @@
 ﻿namespace Easing.Test
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Easing;
 
     [TestClass]
     public class EaseLinearTest

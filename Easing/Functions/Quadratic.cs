@@ -31,71 +31,69 @@ namespace Easing
 
         public override float In(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
+            float normalisedX = NormaliseInput(x);
             float y = Scale.Y * Pow(normalisedX, 2);
-            
+
             return OutputInRange(x, y);
         }
 
         public override float Out(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
+            float normalisedX = NormaliseInput(x);
             float y = Scale.Y - Scale.Y * Pow(normalisedX - 1, 2);
-            
+
             return OutputInRange(x, y);
         }
 
         public override float InOut(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
-            float center = Scale.X / 2;
+            float normalisedX = NormaliseInput(x);
+            float centerX = Scale.X / 2;
             float y = Scale.Y / 2;
 
-            if (x < center)
+            if (x < centerX)
             {
                 y = 2 * Scale.Y * Pow(normalisedX, 2);
             }
-            else if (x > center)
+            else if (x > centerX)
             {
                 y = Scale.Y - 2 * Scale.Y * Pow(normalisedX - 1, 2);
             }
 
-            
             return OutputInRange(x, y);
         }
 
         public override float InInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
+            float normalisedY = NormaliseInverseInput(y);
             float x = Scale.X * Sqrt(normalisedY);
-            
+
             return InverseOutputInRange(x, y);
         }
 
         public override float OutInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
+            float normalisedY = NormaliseInverseInput(y);
             float x = Scale.X - Scale.X * Sqrt(1 - normalisedY);
-            
+
             return InverseOutputInRange(x, y);
         }
 
         public override float InOutInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
-            float center = Scale.Y / 2;
+            float normalisedY = NormaliseInverseInput(y);
+            float centerY = Scale.Y / 2;
             float x = Scale.X / 2;
 
-            if (y < center)
+            if (y < centerY)
             {
                 x = Scale.X * Sqrt(normalisedY / 2);
             }
-            else if (y > center)
+            else if (y > centerY)
             {
                 x = Scale.X - Scale.X * Sqrt((1 - normalisedY) / 2);
             }
 
-            
             return InverseOutputInRange(x, y);
         }
     }

@@ -40,10 +40,16 @@ namespace Easing
             Scale = scale;
         }
 
-        protected float NormaliseInput(float input, float scale)
+        protected float NormaliseInput(float x)
         {
-            input /= scale;
-            return input;
+            x /= Scale.X;
+            return x;
+        }
+
+        protected float NormaliseInverseInput(float y)
+        {
+            y /= Scale.Y;
+            return y;
         }
 
         protected float OutputInRange(float x, float y)

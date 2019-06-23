@@ -31,7 +31,7 @@ namespace Easing
 
         public override float In(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
+            float normalisedX = NormaliseInput(x);
             float y = Scale.Y * normalisedX;
             
             return OutputInRange(x, y);
@@ -39,7 +39,7 @@ namespace Easing
 
         public override float Out(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
+            float normalisedX = NormaliseInput(x);
             float y = Scale.Y * normalisedX;
             
             return OutputInRange(x, y);
@@ -47,7 +47,7 @@ namespace Easing
 
         public override float InOut(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
+            float normalisedX = NormaliseInput(x);
             float y = Scale.Y * normalisedX;
             
             return OutputInRange(x, y);
@@ -55,7 +55,7 @@ namespace Easing
 
         public override float InInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
+            float normalisedY = NormaliseInverseInput(y);
             float x = Scale.X * normalisedY;
             
             return InverseOutputInRange(x, y);
@@ -63,7 +63,7 @@ namespace Easing
 
         public override float OutInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
+            float normalisedY = NormaliseInverseInput(y);
             float x = Scale.X * normalisedY;
             
             return InverseOutputInRange(x, y);
@@ -71,7 +71,7 @@ namespace Easing
 
         public override float InOutInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
+            float normalisedY = NormaliseInverseInput(y);
             float x = Scale.X * normalisedY;
             
             return InverseOutputInRange(x, y);

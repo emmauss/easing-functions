@@ -31,15 +31,15 @@ namespace Easing
 
         public override float In(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
-            float y = Scale.Y + Scale.Y * Sin((PI / 2) * normalisedX - (PI / 2));
+            float normalisedX = NormaliseInput(x);
+            float y = Scale.Y + Scale.Y * Sin(PI / 2 * normalisedX - (PI / 2));
 
             return OutputInRange(x, y);
         }
 
         public override float Out(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
+            float normalisedX = NormaliseInput(x);
             float y = Scale.Y * Sin((PI / 2) * normalisedX);
 
             return OutputInRange(x, y);
@@ -47,9 +47,8 @@ namespace Easing
 
         public override float InOut(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
-            float center = Scale.Y / 2;
-            float y = Scale.Y / 2 + center * Sin((PI * normalisedX) - (PI / 2));
+            float normalisedX = NormaliseInput(x);
+            float y = (Scale.Y / 2) + (Scale.Y / 2) * Sin((PI * normalisedX) - (PI / 2));
 
             return OutputInRange(x, y);
         }
@@ -57,7 +56,7 @@ namespace Easing
 
         public override float InInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
+            float normalisedY = NormaliseInverseInput(y);
             float x = Scale.X + Scale.X * ((2 * Asin(normalisedY - 1)) / PI);
 
             return InverseOutputInRange(x, y);
@@ -65,7 +64,7 @@ namespace Easing
 
         public override float OutInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
+            float normalisedY = NormaliseInverseInput(y);
             float x = Scale.X * (2 * Asin(normalisedY)) / PI;
 
             return InverseOutputInRange(x, y);
@@ -73,9 +72,8 @@ namespace Easing
 
         public override float InOutInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
-            float center = Scale.Y / 2;
-            float x = Scale.X / 2 + Scale.X * (Asin((2 * normalisedY) - 1)) / PI;
+            float normalisedY = NormaliseInverseInput(y);
+            float x = (Scale.X / 2) + Scale.X * (Asin((2 * normalisedY) - 1)) / PI;
 
             return InverseOutputInRange(x, y);
         }
