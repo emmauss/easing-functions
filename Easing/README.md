@@ -2,7 +2,6 @@
 This is a simple class library, so it will build to a single `.dll` file with the **Easing** namespace.
 
 ### Things to know
-##### The functions
 There are 3 main functions for each ease type, there is **In**, **Out**, **In-Out**. These functions follow the `f(x) = y` format:
 
 ![Main function format](/readme-images/normal-function.png)
