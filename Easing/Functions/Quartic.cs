@@ -31,7 +31,7 @@ namespace Easing
 
         public override float In(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
+            float normalisedX = NormaliseInput(x);
             float y = Scale.Y * Pow(normalisedX, 4);
             
             return OutputInRange(x, y);
@@ -39,7 +39,7 @@ namespace Easing
 
         public override float Out(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
+            float normalisedX = NormaliseInput(x);
             float y = Scale.Y - Scale.Y * Pow(normalisedX - 1, 4);
             
             return OutputInRange(x, y);
@@ -47,26 +47,25 @@ namespace Easing
 
         public override float InOut(float x)
         {
-            float normalisedX = NormaliseInput(x, Scale.X);
-            float center = Scale.X / 2;
+            float normalisedX = NormaliseInput(x);
+            float centerX = Scale.X / 2;
             float y = Scale.Y / 2;
 
-            if (x < center)
+            if (x < centerX)
             {
                 y = 8 * Scale.Y * Pow(normalisedX, 4);
             }
-            else if (x > center)
+            else if (x > centerX)
             {
                 y = Scale.Y - 8 * Scale.Y * Pow(normalisedX - 1, 4);
             }
-
-            
+           
             return OutputInRange(x, y);
         }
 
         public override float InInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
+            float normalisedY = NormaliseInverseInput(y);
             float x = Scale.X * Pow(normalisedY, 1.0f / 4.0f);
             
             return InverseOutputInRange(x, y);
@@ -74,7 +73,7 @@ namespace Easing
 
         public override float OutInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
+            float normalisedY = NormaliseInverseInput(y);
             float x = Scale.X - Scale.X * Pow(1 - normalisedY, 1.0f / 4.0f);
             
             return InverseOutputInRange(x, y);
@@ -82,20 +81,19 @@ namespace Easing
 
         public override float InOutInverse(float y)
         {
-            float normalisedY = NormaliseInput(y, Scale.Y);
-            float center = Scale.Y / 2;
+            float normalisedY = NormaliseInverseInput(y);
+            float centerY = Scale.Y / 2;
             float x = Scale.X / 2;
 
-            if (y < center)
+            if (y < centerY)
             {
                 x = Scale.X * Pow(normalisedY / 8, 1.0f / 4.0f);
             }
-            else if (y > center)
+            else if (y > centerY)
             {
                 x = Scale.X - Scale.X * Pow((1 - normalisedY) / 8, 1.0f / 4.0f);
             }
-
-            
+           
             return InverseOutputInRange(x, y);
         }
     }

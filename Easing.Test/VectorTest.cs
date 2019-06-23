@@ -1,20 +1,11 @@
 ﻿namespace Easing.Test
 {
-    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Easing;
 
     [TestClass]
     public class VectorTest
     {
-        [TestMethod]
-        public void StaticFeildZero_IsActuallyZero()
-        {
-            bool xIsZero = Vector.Zero.X == 0;
-            bool yIsZero = Vector.Zero.Y == 0;
-
-            Assert.IsTrue(xIsZero && yIsZero);
-        }
-
         #region -
         [TestMethod]
         public void OperatorSubtract_14x25ySubtract7x32y_Returns7xN7y()
@@ -39,6 +30,60 @@
 
             Vector actual = lhs + rhs;
             Vector expected = new Vector(21, 57);
+
+            Assert.AreEqual(actual, expected);
+        }
+        #endregion
+
+
+        #region *
+        [TestMethod]
+        public void OperatorMultiply_5x7yMultiply3_Returns15x21y()
+        {
+            Vector lhs = new Vector(5, 7);
+            float rhs = 3;
+
+            Vector actual = lhs * rhs;
+            Vector expected = new Vector(15, 21);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        public void OperatorMultiply_5x7yMultiplyNeg3_Returns15x21y()
+        {
+            Vector lhs = new Vector(5, 7);
+            float rhs = -3;
+
+            Vector actual = lhs * rhs;
+            Vector expected = new Vector(-15, -21);
+
+            Assert.AreEqual(actual, expected);
+        }
+        #endregion
+
+
+        #region /
+        [TestMethod]
+        public void OperatorDivide_30x27yDivide3_Returns10x9y()
+        {
+            Vector lhs = new Vector(30, 27);
+            float rhs = 3;
+
+            Vector actual = lhs / rhs;
+            Vector expected = new Vector(10, 9);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        public void OperatorDivide_30x27yDivideNeg3_ReturnsNeg10xNeg9y()
+        {
+            Vector lhs = new Vector(30, 27);
+            float rhs = -3;
+
+            Vector actual = lhs / rhs;
+            Vector expected = new Vector(-10, -9);
 
             Assert.AreEqual(actual, expected);
         }

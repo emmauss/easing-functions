@@ -28,7 +28,6 @@ namespace Easing
 
     public struct Vector : IEquatable<Vector>
     {
-        public static Vector Zero { get => new Vector(0, 0); }
         public float X { get; set; }
         public float Y { get; set; }
 

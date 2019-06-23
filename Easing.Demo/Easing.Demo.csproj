@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5D0EAA2D-16A0-4139-BB34-40312B945D9E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EaseDemonstration</RootNamespace>
-    <AssemblyName>EaseDemonstration</AssemblyName>
+    <RootNamespace>Easing.Demo</RootNamespace>
+    <AssemblyName>Easing.Demo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,4 +1,4 @@
-﻿namespace EaseDemonstration
+﻿namespace Easing.Demo
 {
     using System;
     using System.Collections.Generic;

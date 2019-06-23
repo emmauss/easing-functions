@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easing", "Easing\Easing.csproj", "{B7A17BCC-2F50-4D45-B641-9685D07134C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easing.Test", "Ease.Test\Easing.Test.csproj", "{C3AD25D1-BA76-4CCF-B5E8-637F11C29ECA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easing.Test", "Easing.Test\Easing.Test.csproj", "{C3AD25D1-BA76-4CCF-B5E8-637F11C29ECA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EaseDemonstration", "EaseDemonstration\EaseDemonstration.csproj", "{5D0EAA2D-16A0-4139-BB34-40312B945D9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easing.Demo", "Easing.Demo\Easing.Demo.csproj", "{5D0EAA2D-16A0-4139-BB34-40312B945D9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
